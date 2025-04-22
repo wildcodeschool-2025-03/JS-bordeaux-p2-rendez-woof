@@ -15,11 +15,10 @@ function App() {
 				<h1>RENDEZ-WOOF</h1>
 				<nav>
 					<Link to="/">Accueil</Link>
-					<Link to="/my_profile">Mon profil</Link>
-					<Link to="/discover_profiles">Découvrir des profils</Link>
+					<Link to="/myProfile">Mon profil</Link>
+					<Link to="/profiles">Découvrir des profils</Link>
 				</nav>
 			</header>
-			<h2>toto</h2>
 			<Outlet />
 		</>
 	);
