@@ -1,5 +1,26 @@
+:root {
+	--main-color: #5c913b;
+	--background-color-header-footer: #efede6;
+	--background-color-body: #f9f8f4;
+	--text-color: black;
+	--border-color: #ff3c14;
+}
+
 body {
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+	font-size: 16px;
+	margin: 0 auto;
+	padding: 2rem;
+	text-align: center;
+}
+
+h1 {
+	font-size: 2rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+}
+
+p {
+	font-size: 1rem;
 }
