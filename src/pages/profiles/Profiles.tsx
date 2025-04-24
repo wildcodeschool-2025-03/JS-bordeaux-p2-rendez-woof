@@ -74,7 +74,7 @@ function Profiles() {
 				<p>(filtres à venir)</p>
 				<CardProfile dog={profile[0]} />
 			</section>
-			<section className="recommandations">
+			<section className="recommendations">
 				<h2>
 					Recommandations :<br />
 					tu risques de trouver l'âme chien ici !

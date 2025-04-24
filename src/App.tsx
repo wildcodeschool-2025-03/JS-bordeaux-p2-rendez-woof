@@ -6,11 +6,9 @@ import Header from "./components/Header/Header";
 function App() {
 	return (
 		<>
-			<div className="page-wrapper">
-				<Header />
-				<Outlet />
-				<Footer />
-			</div>
+			<Header />
+			<Outlet />
+			<Footer />
 		</>
 	);
 }
