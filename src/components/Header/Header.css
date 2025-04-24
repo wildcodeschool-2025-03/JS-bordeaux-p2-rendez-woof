@@ -1,0 +1,41 @@
+header {
+	display: flex;
+	flex-direction: column;
+	background-color: var(--background-color-header-footer);
+	gap: 5px;
+	padding: 15px 20px;
+
+	#headerTop {
+		display: flex;
+		justify-content: center;
+		gap: 10px;
+	}
+
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+		font-size: 0.8rem;
+	}
+}
+
+@media (min-width: 1024px) {
+	header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+
+		.logo {
+			width: 80px;
+			height: 80px;
+		}
+
+		nav {
+			display: flex;
+			justify-content: center;
+			gap: 20px;
+			font-size: 1rem;
+		}
+	}
+}

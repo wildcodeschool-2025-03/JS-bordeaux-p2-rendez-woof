@@ -1,0 +1,564 @@
+{
+  "dogs": [
+    {
+      "id": 1,
+      "name": "Adèle",
+      "age": 3,
+      "size": "Moyen",
+      "photo": "https://placedog.net/500/280?id=1",
+      "city": "Bordeaux",
+      "personality": [
+        "Canin romantique",
+        "Loup-garou urbain",
+        "Chiwawakado"
+      ],
+      "favorite_foods": [
+        "Croquettes au caviar",
+        "Pizza aux sardines",
+        "Soupe de baballes"
+      ],
+      "phobias": [
+        "Aspirateurs",
+        "Reflets de lune",
+        "Clowns en pantoufles"
+      ],
+      "hobbies": [
+        "Regarder Netflix sans bouger",
+        "Voler des chaussettes",
+        "Faire semblant de dormir"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Pénélope",
+      "age": 5,
+      "size": "Moyen",
+      "photo": "https://placedog.net/500/280?id=2",
+      "city": "Bordeaux",
+      "personality": [
+        "Canin romantique",
+        "Loup-garou urbain",
+        "Chiwawakado"
+      ],
+      "favorite_foods": [
+        "Croquettes au caviar",
+        "Pizza aux sardines",
+        "Soupe de baballes"
+      ],
+      "phobias": [
+        "Aspirateurs",
+        "Reflets de lune",
+        "Clowns en pantoufles"
+      ],
+      "hobbies": [
+        "Regarder Netflix sans bouger",
+        "Voler des chaussettes",
+        "Faire semblant de dormir"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Henri",
+      "age": 8,
+      "size": "Grand",
+      "photo": "https://placedog.net/500/280?id=3",
+      "city": "Bordeaux",
+      "personality": [
+        "Chien rebelle",
+        "Bourrin affectif",
+        "Chiwawakado"
+      ],
+      "favorite_foods": [
+        "Tartare de tennis-balles",
+        "Soupe de baballes",
+        "Pizza aux sardines"
+      ],
+      "phobias": [
+        "Pneus de trottinette",
+        "Aspirateurs",
+        "Clowns en pantoufles"
+      ],
+      "hobbies": [
+        "Collectionner des cailloux",
+        "Creuser des trous artistiques",
+        "Regarder Netflix sans bouger"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Arnaude",
+      "age": 8,
+      "size": "Moyen",
+      "photo": "https://placedog.net/500/280?id=4",
+      "city": "Bordeaux",
+      "personality": [
+        "Canin romantique",
+        "Loup-garou urbain",
+        "Chiwawakado"
+      ],
+      "favorite_foods": [
+        "Croquettes au caviar",
+        "Pizza aux sardines",
+        "Soupe de baballes"
+      ],
+      "phobias": [
+        "Aspirateurs",
+        "Reflets de lune",
+        "Clowns en pantoufles"
+      ],
+      "hobbies": [
+        "Regarder Netflix sans bouger",
+        "Voler des chaussettes",
+        "Faire semblant de dormir"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Sabine",
+      "age": 3,
+      "size": "Moyen",
+      "photo": "https://placedog.net/500/280?id=5",
+      "city": "Bordeaux",
+      "personality": [
+        "Bourrin affectif",
+        "Loup-garou urbain",
+        "Canin romantique"
+      ],
+      "favorite_foods": [
+        "Os de licorne",
+        "Tartare de tennis-balles",
+        "Pizza aux sardines"
+      ],
+      "phobias": [
+        "Clowns en pantoufles",
+        "Balançoires qui grincent",
+        "Pneus de trottinette"
+      ],
+      "hobbies": [
+        "Faire semblant de dormir",
+        "Creuser des trous artistiques",
+        "Regarder Netflix sans bouger"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Honoré",
+      "age": 6,
+      "size": "Petit",
+      "photo": "https://placedog.net/500/280?id=6",
+      "city": "Bordeaux",
+      "personality": [
+        "Chiwawakado",
+        "Bourrin affectif",
+        "Loup-garou urbain"
+      ],
+      "favorite_foods": [
+        "Tartare de tennis-balles",
+        "Croquettes au caviar",
+        "Soupe de baballes"
+      ],
+      "phobias": [
+        "Pneus de trottinette",
+        "Clowns en pantoufles",
+        "Reflets de lune"
+      ],
+      "hobbies": [
+        "Creuser des trous artistiques",
+        "Collectionner des cailloux",
+        "Faire semblant de dormir"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Lucas",
+      "age": 1,
+      "size": "Énorme",
+      "photo": "https://placedog.net/500/280?id=7",
+      "city": "Bordeaux",
+      "personality": [
+        "Loup-garou urbain",
+        "Bourrin affectif",
+        "Canin romantique"
+      ],
+      "favorite_foods": [
+        "Tartare de tennis-balles",
+        "Os de licorne",
+        "Soupe de baballes"
+      ],
+      "phobias": [
+        "Reflets de lune",
+        "Clowns en pantoufles",
+        "Pneus de trottinette"
+      ],
+      "hobbies": [
+        "Voler des chaussettes",
+        "Regarder Netflix sans bouger",
+        "Faire semblant de dormir"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Laurent",
+      "age": 3,
+      "size": "Moyen",
+      "photo": "https://placedog.net/500/280?id=8",
+      "city": "Bordeaux",
+      "personality": [
+        "Canin romantique",
+        "Loup-garou urbain",
+        "Chiwawakado"
+      ],
+      "favorite_foods": [
+        "Croquettes au caviar",
+        "Pizza aux sardines",
+        "Soupe de baballes"
+      ],
+      "phobias": [
+        "Aspirateurs",
+        "Reflets de lune",
+        "Clowns en pantoufles"
+      ],
+      "hobbies": [
+        "Regarder Netflix sans bouger",
+        "Voler des chaussettes",
+        "Faire semblant de dormir"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Étienne",
+      "age": 8,
+      "size": "Moyen",
+      "photo": "https://placedog.net/500/280?id=9",
+      "city": "Bordeaux",
+      "personality": [
+        "Canin romantique",
+        "Loup-garou urbain",
+        "Chiwawakado"
+      ],
+      "favorite_foods": [
+        "Croquettes au caviar",
+        "Pizza aux sardines",
+        "Soupe de baballes"
+      ],
+      "phobias": [
+        "Aspirateurs",
+        "Reflets de lune",
+        "Clowns en pantoufles"
+      ],
+      "hobbies": [
+        "Regarder Netflix sans bouger",
+        "Voler des chaussettes",
+        "Faire semblant de dormir"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Augustin",
+      "age": 8,
+      "size": "Grand",
+      "photo": "https://placedog.net/500/280?id=10",
+      "city": "Bordeaux",
+      "personality": [
+        "Chiwawakado",
+        "Loup-garou urbain",
+        "Bourrin affectif"
+      ],
+      "favorite_foods": [
+        "Tartare de tennis-balles",
+        "Pizza aux sardines",
+        "Croquettes au caviar"
+      ],
+      "phobias": [
+        "Balançoires qui grincent",
+        "Clowns en pantoufles",
+        "Pneus de trottinette"
+      ],
+      "hobbies": [
+        "Creuser des trous artistiques",
+        "Voler des chaussettes",
+        "Collectionner des cailloux"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Thibault",
+      "age": 5,
+      "size": "Moyen",
+      "photo": "https://placedog.net/500/280?id=11",
+      "city": "Bordeaux",
+      "personality": [
+        "Canin romantique",
+        "Loup-garou urbain",
+        "Chiwawakado"
+      ],
+      "favorite_foods": [
+        "Croquettes au caviar",
+        "Pizza aux sardines",
+        "Soupe de baballes"
+      ],
+      "phobias": [
+        "Aspirateurs",
+        "Reflets de lune",
+        "Clowns en pantoufles"
+      ],
+      "hobbies": [
+        "Regarder Netflix sans bouger",
+        "Voler des chaussettes",
+        "Faire semblant de dormir"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Alix",
+      "age": 4,
+      "size": "Moyen",
+      "photo": "https://placedog.net/500/280?id=12",
+      "city": "Bordeaux",
+      "personality": [
+        "Canin romantique",
+        "Loup-garou urbain",
+        "Chiwawakado"
+      ],
+      "favorite_foods": [
+        "Croquettes au caviar",
+        "Pizza aux sardines",
+        "Soupe de baballes"
+      ],
+      "phobias": [
+        "Aspirateurs",
+        "Reflets de lune",
+        "Clowns en pantoufles"
+      ],
+      "hobbies": [
+        "Regarder Netflix sans bouger",
+        "Voler des chaussettes",
+        "Faire semblant de dormir"
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Cécile",
+      "age": 1,
+      "size": "Moyen",
+      "photo": "https://placedog.net/500/280?id=13",
+      "city": "Bordeaux",
+      "personality": [
+        "Canin romantique",
+        "Loup-garou urbain",
+        "Chiwawakado"
+      ],
+      "favorite_foods": [
+        "Croquettes au caviar",
+        "Pizza aux sardines",
+        "Soupe de baballes"
+      ],
+      "phobias": [
+        "Aspirateurs",
+        "Reflets de lune",
+        "Clowns en pantoufles"
+      ],
+      "hobbies": [
+        "Regarder Netflix sans bouger",
+        "Voler des chaussettes",
+        "Faire semblant de dormir"
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Denise",
+      "age": 3,
+      "size": "Grand",
+      "photo": "https://placedog.net/500/280?id=14",
+      "city": "Bordeaux",
+      "personality": [
+        "Bourrin affectif",
+        "Canin romantique",
+        "Chien rebelle"
+      ],
+      "favorite_foods": [
+        "Soupe de baballes",
+        "Croquettes au caviar",
+        "Tartare de tennis-balles"
+      ],
+      "phobias": [
+        "Reflets de lune",
+        "Clowns en pantoufles",
+        "Aspirateurs"
+      ],
+      "hobbies": [
+        "Creuser des trous artistiques",
+        "Voler des chaussettes",
+        "Collectionner des cailloux"
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Lucy",
+      "age": 6,
+      "size": "Grand",
+      "photo": "https://placedog.net/500/280?id=15",
+      "city": "Bordeaux",
+      "personality": [
+        "Loup-garou urbain",
+        "Chiwawakado",
+        "Canin romantique"
+      ],
+      "favorite_foods": [
+        "Os de licorne",
+        "Croquettes au caviar",
+        "Soupe de baballes"
+      ],
+      "phobias": [
+        "Clowns en pantoufles",
+        "Aspirateurs",
+        "Pneus de trottinette"
+      ],
+      "hobbies": [
+        "Regarder Netflix sans bouger",
+        "Collectionner des cailloux",
+        "Creuser des trous artistiques"
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Simone",
+      "age": 1,
+      "size": "Moyen",
+      "photo": "https://placedog.net/500/280?id=16",
+      "city": "Bordeaux",
+      "personality": [
+        "Bourrin affectif",
+        "Canin romantique",
+        "Loup-garou urbain"
+      ],
+      "favorite_foods": [
+        "Pizza aux sardines",
+        "Soupe de baballes",
+        "Tartare de tennis-balles"
+      ],
+      "phobias": [
+        "Reflets de lune",
+        "Pneus de trottinette",
+        "Clowns en pantoufles"
+      ],
+      "hobbies": [
+        "Voler des chaussettes",
+        "Faire semblant de dormir",
+        "Creuser des trous artistiques"
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Madeleine",
+      "age": 8,
+      "size": "Grand",
+      "photo": "https://placedog.net/500/280?id=17",
+      "city": "Bordeaux",
+      "personality": [
+        "Loup-garou urbain",
+        "Chien rebelle",
+        "Canin romantique"
+      ],
+      "favorite_foods": [
+        "Croquettes au caviar",
+        "Pizza aux sardines",
+        "Soupe de baballes"
+      ],
+      "phobias": [
+        "Aspirateurs",
+        "Pneus de trottinette",
+        "Reflets de lune"
+      ],
+      "hobbies": [
+        "Collectionner des cailloux",
+        "Creuser des trous artistiques",
+        "Voler des chaussettes"
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Julien",
+      "age": 2,
+      "size": "Moyen",
+      "photo": "https://placedog.net/500/280?id=18",
+      "city": "Bordeaux",
+      "personality": [
+        "Canin romantique",
+        "Chien rebelle",
+        "Bourrin affectif"
+      ],
+      "favorite_foods": [
+        "Tartare de tennis-balles",
+        "Os de licorne",
+        "Soupe de baballes"
+      ],
+      "phobias": [
+        "Pneus de trottinette",
+        "Aspirateurs",
+        "Balançoires qui grincent"
+      ],
+      "hobbies": [
+        "Regarder Netflix sans bouger",
+        "Voler des chaussettes",
+        "Collectionner des cailloux"
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Frédérique",
+      "age": 7,
+      "size": "Petit",
+      "photo": "https://placedog.net/500/280?id=19",
+      "city": "Bordeaux",
+      "personality": [
+        "Bourrin affectif",
+        "Loup-garou urbain",
+        "Chiwawakado"
+      ],
+      "favorite_foods": [
+        "Tartare de tennis-balles",
+        "Croquettes au caviar",
+        "Soupe de baballes"
+      ],
+      "phobias": [
+        "Aspirateurs",
+        "Pneus de trottinette",
+        "Reflets de lune"
+      ],
+      "hobbies": [
+        "Regarder Netflix sans bouger",
+        "Collectionner des cailloux",
+        "Creuser des trous artistiques"
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Alexandria",
+      "age": 3,
+      "size": "Énorme",
+      "photo": "https://placedog.net/500/280?id=20",
+      "city": "Bordeaux",
+      "personality": [
+        "Loup-garou urbain",
+        "Bourrin affectif",
+        "Canin romantique"
+      ],
+      "favorite_foods": [
+        "Tartare de tennis-balles",
+        "Croquettes au caviar",
+        "Soupe de baballes"
+      ],
+      "phobias": [
+        "Reflets de lune",
+        "Aspirateurs",
+        "Balançoires qui grincent"
+      ],
+      "hobbies": [
+        "Faire semblant de dormir",
+        "Voler des chaussettes",
+        "Regarder Netflix sans bouger"
+      ]
+    }
+  ]
+}

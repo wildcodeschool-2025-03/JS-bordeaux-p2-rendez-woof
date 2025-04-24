@@ -6,22 +6,49 @@
 	--border-color: #ff3c14;
 }
 
-body {
-	font-size: 16px;
-	margin: 0 auto;
-	padding: 2rem;
-	text-align: center;
+@font-face {
+	font-family: "Chela One";
+	src: url("./assets/font_google/Chela_One/ChelaOne-Regular.ttf")
+		format("truetype");
+	font-weight: normal;
+	font-style: normal;
 }
 
 h1 {
 	font-size: 2rem;
-	font-family: "Chela One", system-ui;
+	font-family: "Chela One", cursive;
+	color: var(--main-color);
 }
 
 h2 {
-	font-size: 1.5rem;
+	font-size: 1.2rem;
+	font-weight: normal;
+	padding-bottom: 40px;
 }
 
 p {
 	font-size: 1rem;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	background-color: var(--background-color-body);
+	color: var(--text-color);
+}
+
+@media (min-width: 1024px) {
+	h1 {
+		font-size: 2.8rem;
+		display: flex;
+		align-items: center;
+	}
+
+	h2 {
+		font-size: 2rem;
+	}
+	p {
+		font-size: 1.1rem;
+	}
 }
