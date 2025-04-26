@@ -27,10 +27,6 @@ const sampleProfile = {
 
 function App() {
 	const handleNextProfile = () => {
-		getProfile();
-	};
-	const [profile, setProfile] = useState(sampleProfile);
-	const getProfile = () => {
 		fetch("http://localhost:4000/dogs")
 			.then((res) => res.json())
 			.then((data) => {
@@ -39,6 +35,9 @@ function App() {
 				setProfile(randomDog);
 			});
 	};
+
+	const [profile, setProfile] = useState(sampleProfile);
+
 	return (
 		<>
 			<header>
@@ -58,5 +57,4 @@ function App() {
 		</>
 	);
 }
-
 export default App;
