@@ -4,16 +4,16 @@ import { Link } from "react-router";
 function Header() {
 	return (
 		<header>
-			<div id="headerTop">
+			<section>
 				<img
-					className="logo"
-					src="src/images/logo.png"
+					className="logoSite"
+					src="src/assets/images/logo_site.png"
 					alt="logo"
 					width="50"
 					height="50"
 				/>
 				<h1>RENDEZ-WOOF</h1>
-			</div>
+			</section>
 			<nav>
 				<Link to="/">Accueil</Link>
 				<Link to="/myProfile">Mon profil</Link>

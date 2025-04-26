@@ -8,8 +8,7 @@
 
 @font-face {
 	font-family: "Chela One";
-	src: url("./assets/font_google/Chela_One/ChelaOne-Regular.ttf")
-		format("truetype");
+	src: url("./assets/font/Chela_One/ChelaOne-Regular.ttf") format("truetype");
 	font-weight: normal;
 	font-style: normal;
 }
@@ -28,6 +27,10 @@ h2 {
 
 p {
 	font-size: 1rem;
+}
+
+.bold {
+	font-weight: bold;
 }
 
 body {

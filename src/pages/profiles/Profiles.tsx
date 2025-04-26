@@ -1,78 +1,25 @@
+import { useEffect, useState } from "react";
 import CardProfile from "../../components/CardProfile/CardProfile";
 import "./Profiles.css";
 
-const sampleProfile = [
-	{
-		id: 1,
-		name: "Adèle",
-		age: 3,
-		size: "Moyen",
-		photo: "https://placedog.net/500/280?id=1",
-		city: "Bordeaux",
-		personality: ["Canin romantique", "Loup-garou urbain", "Chiwawakado"],
-		favorite_foods: [
-			"Croquettes au caviar",
-			"Pizza aux sardines",
-			"Soupe de baballes",
-		],
-		phobias: ["Aspirateurs", "Reflets de lune", "Clowns en pantoufles"],
-		hobbies: [
-			"Regarder Netflix sans bouger",
-			"Voler des chaussettes",
-			"Faire semblant de dormir",
-		],
-	},
-	{
-		id: 2,
-		name: "Pénélope",
-		age: 5,
-		size: "Moyen",
-		photo: "https://placedog.net/500/280?id=2",
-		city: "Bordeaux",
-		personality: ["Canin romantique", "Loup-garou urbain", "Chiwawakado"],
-		favorite_foods: [
-			"Croquettes au caviar",
-			"Pizza aux sardines",
-			"Soupe de baballes",
-		],
-		phobias: ["Aspirateurs", "Reflets de lune", "Clowns en pantoufles"],
-		hobbies: [
-			"Regarder Netflix sans bouger",
-			"Voler des chaussettes",
-			"Faire semblant de dormir",
-		],
-	},
-	{
-		id: 3,
-		name: "Henri",
-		age: 8,
-		size: "Grand",
-		photo: "https://placedog.net/500/280?id=3",
-		city: "Bordeaux",
-		personality: ["Chien rebelle", "Bourrin affectif", "Chiwawakado"],
-		favorite_foods: [
-			"Tartare de tennis-balles",
-			"Soupe de baballes",
-			"Pizza aux sardines",
-		],
-		phobias: ["Pneus de trottinette", "Aspirateurs", "Clowns en pantoufles"],
-		hobbies: [
-			"Collectionner des cailloux",
-			"Creuser des trous artistiques",
-			"Regarder Netflix sans bouger",
-		],
-	},
-];
-
 function Profiles() {
-	const profile = sampleProfile;
+	const [dog, setDog] = useState([]);
+
+	useEffect(() => {
+		fetch("http://localhost:4000/dogs")
+			.then((response) => response.json())
+			.then((data) => setDog(data));
+	}, []);
 
 	return (
 		<main>
 			<section className="profiles">
 				<h2>Profils</h2>
-				<p>(filtres à venir)</p>
-				<CardProfile dog={profile[0]} />
+				{dog.length > 0 ? (
+					<CardProfile dog={dog[0]} />
+				) : (
+					<p>Chargement de profil</p>
+				)}
 			</section>
 			<section className="recommendations">
 				<h2>
@@ -81,13 +28,25 @@ function Profiles() {
 				</h2>
 				<div className="profilesRecommended">
 					<div className="card-1">
-						<CardProfile dog={profile[0]} />
+						{dog.length > 0 ? (
+							<CardProfile dog={dog[0]} />
+						) : (
+							<p>Chargement de profil</p>
+						)}
 					</div>
 					<div className="card-2">
-						<CardProfile dog={profile[1]} />
+						{dog.length > 0 ? (
+							<CardProfile dog={dog[1]} />
+						) : (
+							<p>Chargement de profil</p>
+						)}
 					</div>
 					<div className="card-3">
-						<CardProfile dog={profile[2]} />
+						{dog.length > 0 ? (
+							<CardProfile dog={dog[2]} />
+						) : (
+							<p>Chargement de profil</p>
+						)}
 					</div>
 				</div>
 			</section>

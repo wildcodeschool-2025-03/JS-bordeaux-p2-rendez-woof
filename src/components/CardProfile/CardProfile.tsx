@@ -7,6 +7,7 @@ interface CardProfileProps {
 		id: number;
 		name: string;
 		age: number;
+		race: string;
 		size: string;
 		photo: string;
 		personality: string[];
@@ -20,102 +21,110 @@ interface CardProfileProps {
 function CardProfile({ dog }: CardProfileProps) {
 	const [isFlipped, setIsFlipped] = useState(false);
 
-	function flipCard() {
-		setIsFlipped(!isFlipped);
-	}
-
 	return (
 		<ReactCardFlip flipDirection="horizontal" isFlipped={isFlipped}>
-			<article className="cardProfile" onClick={flipCard} onKeyDown={flipCard}>
-				<div className="cardTop">
-					<div id="infoDog">
-						<p id="nameDog">
-							{dog.name}, {dog.age} an{dog.age > 1 ? "s" : ""}
-						</p>
-						<p>{dog.city}</p>
-					</div>
-					<img
-						src="src/assets/Arrow_right-circle.png"
-						width="50"
-						height="50"
-						alt="logo-croix"
-					/>
-				</div>
-				<img
-					id="photoDog"
-					src={dog.photo}
-					alt={dog.name}
-					width="280"
-					height="200"
-				/>
-				<div className="logosProfile">
-					<img
-						src="src/assets/X_circle.png"
-						width="60"
-						height="auto"
-						alt="logo-croix"
-					/>
-					<img
-						src="src/assets/lineCard.png"
-						alt="line card"
-						width="1"
-						height="60"
-					/>
-					<img
-						src="src/assets/coeur_1.png"
-						alt="logo-coeur"
-						width="60"
-						height="auto"
-					/>
-				</div>
-				<img src="src/assets/dots.png" alt="dots" width="30" height="auto" />
-			</article>
 			<article
-				className="cardProfileback"
-				onClick={flipCard}
-				onKeyDown={flipCard}
+				className="cardProfile"
+				onClick={() => setIsFlipped(!isFlipped)}
+				onKeyDown={() => setIsFlipped(!isFlipped)}
 			>
 				<div className="cardTop">
 					<div id="infoDog">
-						<p id="nameDog">
+						<p className="bold">
 							{dog.name}, {dog.age} an{dog.age > 1 ? "s" : ""}
 						</p>
-						<p>{dog.city}</p>
+						<p className="raceCityDog">
+							{dog.race}, {dog.city}
+						</p>
 					</div>
 					<img
-						src="src/assets/Arrow_right-circle.png"
+						src="src/assets/images/icone_flipCard.png"
 						width="50"
 						height="50"
-						alt="logo-croix"
+						alt="icone flip-card"
 					/>
 				</div>
-				<div className="personalityDog">
-					<p>🍽️{dog.favorite_foods.join(", ")}</p>
-					<p>😱{dog.phobias.join(", ")}</p>
-					<p>🎯{dog.hobbies.join(", ")}</p>
-					<p>🐶{dog.personality.join(", ")}</p>
-				</div>
-				<div className="logosProfile">
+				<img id="photoDog" src={dog.photo} alt={dog.name} />
+				<div className="likeDislikeButtons">
 					<img
-						src="src/assets/X_circle.png"
+						src="src/assets/images/dislike_button.png"
 						width="60"
 						height="auto"
-						alt="logo-croix"
+						alt="bouton dislike"
 					/>
 					<img
-						src="src/assets/lineCard.png"
-						alt="line card"
+						src="src/assets/images/separation_like_dislike.png"
+						alt="separation entre le bouton like et le bouton dislike"
 						width="1"
 						height="60"
 					/>
 					<img
-						src="src/assets/coeur_1.png"
-						alt="logo-coeur"
+						src="src/assets/images/like_button.png"
+						alt="bouton like"
 						width="60"
 						height="auto"
 					/>
 				</div>
-				<img src="src/assets/dots.png" alt="dots" width="30" height="auto" />
+			</article>
+			<article
+				className="cardProfileback"
+				onClick={() => setIsFlipped(!isFlipped)}
+				onKeyDown={() => setIsFlipped(!isFlipped)}
+			>
+				<div className="cardTop">
+					<div id="infoDog">
+						<p className="bold">
+							{dog.name}, {dog.age} an{dog.age > 1 ? "s" : ""}
+						</p>
+						<p className="raceCityDog">
+							{dog.race}, {dog.city}
+						</p>
+					</div>
+					<img
+						src="src/assets/images/icone_flipCard.png"
+						width="50"
+						height="50"
+						alt="icone flip-card"
+					/>
+				</div>
+				<div className="descriptionsDog">
+					<div className="descriptionDog">
+						<p className="iconeDescriptionDog">🍽️</p>
+						<p>{dog.favorite_foods.join(", ")}</p>
+					</div>
+					<div className="descriptionDog">
+						<p className="iconeDescriptionDog">😱</p>
+						<p>{dog.phobias.join(", ")}</p>
+					</div>
+					<div className="descriptionDog">
+						<p className="iconeDescriptionDog">🎯</p>
+						<p>{dog.hobbies.join(", ")}</p>
+					</div>
+					<div className="descriptionDog">
+						<p className="iconeDescriptionDog">🐶</p>
+						<p>{dog.personality.join(", ")}</p>
+					</div>
+				</div>
+				<div className="likeDislikeButtons">
+					<img
+						src="src/assets/images/dislike_button.png"
+						width="60"
+						height="auto"
+						alt="bouton dislike"
+					/>
+					<img
+						src="src/assets/images/separation_like_dislike.png"
+						alt="separation entre le bouton like et le bouton dislike"
+						width="1"
+						height="60"
+					/>
+					<img
+						src="src/assets/images/like_button.png"
+						alt="bouton like"
+						width="60"
+						height="auto"
+					/>
+				</div>
 			</article>
 		</ReactCardFlip>
 	);

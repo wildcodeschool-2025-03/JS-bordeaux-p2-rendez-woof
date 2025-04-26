@@ -15,10 +15,6 @@ footer {
 		flex-direction: column;
 		gap: 10px;
 
-		#followUs {
-			font-weight: bold;
-		}
-
 		.logosFooter {
 			width: 180px;
 			display: flex;
@@ -42,10 +38,6 @@ footer {
 		.about {
 			display: block;
 
-			#about {
-				font-weight: bold;
-			}
-
 			p {
 				font-size: 12px;
 			}
@@ -54,20 +46,8 @@ footer {
 		.followUs {
 			order: 2;
 
-			#logo-insta {
-				width: 30px;
-				height: auto;
-			}
-			#logo-tiktok {
-				width: 30px;
-				height: auto;
-			}
-			#logo-fb {
-				width: 30px;
-				height: auto;
-			}
-			#logo-x {
-				width: 30px;
+			.logosSize {
+				width: 25px;
 				height: auto;
 			}
 		}
