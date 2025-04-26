@@ -28,11 +28,6 @@
 		}
 	}
 
-	#photoDog {
-		width: 100%;
-		height: 50%;
-	}
-
 	.likeDislikeButtons {
 		display: flex;
 		justify-content: space-evenly;
