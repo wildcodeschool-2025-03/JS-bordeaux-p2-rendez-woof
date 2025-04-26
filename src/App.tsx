@@ -3,7 +3,6 @@ import "./reset.css";
 import { useState } from "react";
 import "./App.css";
 import CardProfile from "./component/CardProfile/CardProfile/CardProfile";
-import LikeNotificationWrapper from "./component/CardProfile/LikeNotificationWrapper/LikeNotificationWrapper"; // adapte le chemin si besoin
 
 const sampleProfile = {
 	id: 1,
@@ -53,7 +52,6 @@ function App() {
 				<Outlet />
 
 				<div className="App">
-					<LikeNotificationWrapper /> {/* Notification temporaire ici */}
 					<CardProfile dog={profile} onLike={handleNextProfile} />
 				</div>
 			</main>
