@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./CardProfile.css";
-import ReactCardFlip from "react-card-flip";
 import { useContext } from "react";
+import ReactCardFlip from "react-card-flip";
 import { LikesContext } from "../LikeContext/LikesContext";
 
 interface CardProfileProps {
@@ -148,7 +148,7 @@ function CardProfile({ dog, onLike }: CardProfileProps) {
 							e.stopPropagation();
 							handleDislike();
 						}}
-						style={{ cursor: "pointer" }}
+						style={{ background: "none", border: "none", cursor: "pointer" }}
 						aria-label="Refuser ce chien"
 					>
 						<img
@@ -171,7 +171,7 @@ function CardProfile({ dog, onLike }: CardProfileProps) {
 							e.stopPropagation();
 							handleLike();
 						}}
-						style={{ cursor: "pointer" }}
+						style={{ background: "none", border: "none", cursor: "pointer" }}
 						aria-label="Aimer ce chien"
 					>
 						<img src="src/assets/coeur.png" width="60" height="auto" alt="" />
