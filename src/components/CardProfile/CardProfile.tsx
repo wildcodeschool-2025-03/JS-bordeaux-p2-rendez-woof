@@ -44,7 +44,7 @@ function CardProfile({ dog }: CardProfileProps) {
 						alt="icone flip-card"
 					/>
 				</div>
-				<img id="photoDog" src={dog.photo} alt={dog.name} />
+				<img className="photosDogs" src={dog.photo} alt={dog.name} />
 				<div className="likeDislikeButtons">
 					<img
 						src="src/assets/images/dislike_button.png"

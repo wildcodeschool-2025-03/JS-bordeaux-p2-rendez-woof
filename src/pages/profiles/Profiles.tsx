@@ -11,12 +11,14 @@ function Profiles() {
 			.then((data) => setDog(data));
 	}, []);
 
+	const threeDogs = dog.slice(1, 4);
+
 	return (
 		<main>
 			<section className="profiles">
 				<h2>Profils</h2>
 				{dog.length > 0 ? (
-					<CardProfile dog={dog[0]} />
+					<CardProfile dog={dog[1]} />
 				) : (
 					<p>Chargement de profil</p>
 				)}
@@ -27,27 +29,17 @@ function Profiles() {
 					tu risques de trouver l'âme chien ici !
 				</h2>
 				<div className="profilesRecommended">
-					<div className="card-1">
-						{dog.length > 0 ? (
-							<CardProfile dog={dog[0]} />
-						) : (
-							<p>Chargement de profil</p>
-						)}
-					</div>
-					<div className="card-2">
-						{dog.length > 0 ? (
-							<CardProfile dog={dog[1]} />
-						) : (
-							<p>Chargement de profil</p>
-						)}
-					</div>
-					<div className="card-3">
-						{dog.length > 0 ? (
-							<CardProfile dog={dog[2]} />
-						) : (
-							<p>Chargement de profil</p>
-						)}
-					</div>
+					{dog.length > 0 ? (
+						threeDogs.map((dog, index) => {
+							return (
+								<div key={dog.id} className={`card-${index + 1}`}>
+									<CardProfile dog={dog} />
+								</div>
+							);
+						})
+					) : (
+						<p>Chargement de profil</p>
+					)}
 				</div>
 			</section>
 		</main>
