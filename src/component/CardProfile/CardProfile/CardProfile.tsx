@@ -1,56 +1,58 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import "./CardProfile.css";
-import { useContext } from "react";
 import ReactCardFlip from "react-card-flip";
-import { LikesContext } from "../LikeContext/LikesContext";
+import { type DogType, useLikes } from "../LikeContext/LikesContext";
+import { useEffect } from "react";
+import { toast } from "sonner";
 
-interface CardProfileProps {
-	dog: {
-		id: number;
-		name: string;
-		age: number;
-		size: string;
-		photo: string;
-		personality: string[];
-		favorite_foods: string[];
-		phobias: string[];
-		hobbies: string[];
-		city: string;
-	};
-	onLike: () => void;
+interface CardProfile {
+	dog: DogType;
 }
 
-function CardProfile({ dog, onLike }: CardProfileProps) {
+function CardProfile() {
 	const [isFlipped, setIsFlipped] = useState(false);
-	const context = useContext(LikesContext);
+	const { setLikedDogs } = useLikes();
 
-	if (!context) {
-		throw new Error("LikesContext est utilisé en dehors de LikesProvider");
-	}
+	const [dog, setDog] = useState<DogType | null>(null);
 
-	const { addLike } = context;
-	const handleLike = () => {
-		addLike(dog);
+	const handleNextProfile = useCallback(async () => {
+		const dogId = Math.floor(Math.random() * 20) + 1;
+
+		const res = await fetch(
+			`https://my-json-server.typicode.com/wildcodeschool-2025-03/JS-bordeaux-p2-api-rendez-woof/dogs/${dogId}`,
+		);
+		const randomDog = await res.json();
+		setDog(randomDog);
+	}, []);
+
+	useEffect(() => {
+		handleNextProfile();
+	}, [handleNextProfile]);
+
+	const handleLike = (dog: DogType) => {
+		setLikedDogs((prev) => [...prev, dog]);
 		setIsFlipped(false);
 		setTimeout(() => {
-			onLike();
+			handleNextProfile();
 		}, 300);
 	};
 
 	const handleDislike = () => {
 		setIsFlipped(false);
 		setTimeout(() => {
-			onLike();
+			handleNextProfile();
 		}, 300);
 	};
 
-	function flipCard() {
-		setIsFlipped(!isFlipped);
-	}
+	if (!dog) return;
 
 	return (
 		<ReactCardFlip flipDirection="horizontal" isFlipped={isFlipped}>
-			<button type="button" className="cardProfile" onClick={flipCard}>
+			<article
+				className="cardProfile"
+				onClick={() => setIsFlipped(!isFlipped)}
+				onKeyUp={() => setIsFlipped(!isFlipped)}
+			>
 				<div className="cardTop">
 					<div className="infoDog">
 						<p className="nameDog">
@@ -78,6 +80,7 @@ function CardProfile({ dog, onLike }: CardProfileProps) {
 						onClick={(e) => {
 							e.stopPropagation();
 							handleDislike();
+							toast.success(`Tu as dislike ${dog.name} !`);
 						}}
 						style={{ background: "none", border: "none", cursor: "pointer" }}
 						aria-label="Refuser ce chien"
@@ -91,7 +94,7 @@ function CardProfile({ dog, onLike }: CardProfileProps) {
 						/>
 					</button>
 					<img
-						src="src/assets/lineCard.png"
+						src="src/assets/line-card.png"
 						alt="line card"
 						width="1"
 						height="60"
@@ -101,16 +104,21 @@ function CardProfile({ dog, onLike }: CardProfileProps) {
 						type="button"
 						onClick={(e) => {
 							e.stopPropagation();
-							handleLike();
+							handleLike(dog);
+							toast.success(`Tu as liké ${dog.name} !`);
 						}}
 						style={{ background: "none", border: "none", cursor: "pointer" }}
 					>
-						<img src="src/assets/coeur.png" width="60" height="auto" alt="" />
+						<img src="src/assets/heart.png" width="60" height="auto" alt="" />
 					</button>
 				</div>
 				<img src="src/assets/dots.png" alt="dots" width="30" height="auto" />
-			</button>
-			<button type="button" className="cardProfileback" onClick={flipCard}>
+			</article>
+			<article
+				className="cardProfileback"
+				onClick={() => setIsFlipped(!isFlipped)}
+				onKeyUp={() => setIsFlipped(!isFlipped)}
+			>
 				<div className="cardTop">
 					<div className="infoDog">
 						<p className="nameDog">
@@ -147,6 +155,7 @@ function CardProfile({ dog, onLike }: CardProfileProps) {
 						onClick={(e) => {
 							e.stopPropagation();
 							handleDislike();
+							toast.success(`Tu as dislike ${dog.name} !`);
 						}}
 						style={{ background: "none", border: "none", cursor: "pointer" }}
 						aria-label="Refuser ce chien"
@@ -156,11 +165,10 @@ function CardProfile({ dog, onLike }: CardProfileProps) {
 							width="60"
 							height="auto"
 							alt="logo-croix"
-							onKeyDown={flipCard}
 						/>
 					</button>
 					<img
-						src="src/assets/lineCard.png"
+						src="src/assets/line-card.png"
 						alt="line card"
 						width="1"
 						height="60"
@@ -169,16 +177,17 @@ function CardProfile({ dog, onLike }: CardProfileProps) {
 						type="button"
 						onClick={(e) => {
 							e.stopPropagation();
-							handleLike();
+							handleLike(dog);
+							toast.success(`Tu as liké ${dog.name} !`);
 						}}
 						style={{ background: "none", border: "none", cursor: "pointer" }}
 						aria-label="Aimer ce chien"
 					>
-						<img src="src/assets/coeur.png" width="60" height="auto" alt="" />
+						<img src="src/assets/heart.png" width="60" height="auto" alt="" />
 					</button>
 				</div>
 				<img src="src/assets/dots.png" alt="dots" width="30" height="auto" />
-			</button>
+			</article>
 		</ReactCardFlip>
 	);
 }

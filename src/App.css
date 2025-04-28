@@ -25,7 +25,8 @@ p {
 	font-size: 1rem;
 }
 
-.cardProfil, .cardProfilback {
+.cardProfil,
+.cardProfilback {
 	width: 300px; /* ou une autre largeur adaptée */
 	height: auto;
 	margin: 0 auto;
@@ -34,17 +35,16 @@ p {
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 	transition: transform 0.6s;
 	backface-visibility: hidden;
-  }
-  
-  .react-card-flip {
+}
+
+.react-card-flip {
 	width: 300px;
 	margin: auto;
-  }
-  
-  .cardTop {
+}
+
+.cardTop {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 1rem;
-  }
-  
+}

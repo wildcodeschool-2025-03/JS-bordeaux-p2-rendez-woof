@@ -1,6 +1,6 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
-export interface Dog {
+export interface DogType {
 	id: number;
 	name: string;
 	age: number;
@@ -13,29 +13,29 @@ export interface Dog {
 	hobbies: string[];
 }
 
-export interface LikesContextType {
-	likeDogs: Dog[];
-	addLike: (dog: Dog) => void;
-	likeNotification: string | null;
+interface LikesContextType {
+	likedDogs: DogType[];
+	setLikedDogs: React.Dispatch<React.SetStateAction<DogType[]>>;
 }
 
-export const LikesContext = createContext<LikesContextType | undefined>(
-	undefined,
-);
+const LikesContext = createContext<LikesContextType | null>(null);
+
 export const LikesProvider = ({ children }: { children: React.ReactNode }) => {
-	const [likeDogs, setLikeDogs] = useState<Dog[]>([]);
-	const [likeNotification, setLikeNotification] = useState<string | null>(null);
-	const addLike = (dog: Dog) => {
-		setLikeDogs((prevLikes) => [...prevLikes, dog]);
-		setLikeNotification(`${dog.name} a été liké!`);
-		setTimeout(() => {
-			setLikeNotification(null);
-		}, 3000);
-	};
+	const [likedDogs, setLikedDogs] = useState<DogType[]>([]);
 
 	return (
-		<LikesContext.Provider value={{ likeDogs, addLike, likeNotification }}>
+		<LikesContext.Provider value={{ likedDogs, setLikedDogs }}>
 			{children}
 		</LikesContext.Provider>
 	);
+};
+
+export const useLikes = () => {
+	const likeContext = useContext(LikesContext);
+
+	if (!likeContext) {
+		throw new Error("useLikes must be used within a LikesProvider");
+	}
+
+	return likeContext;
 };
