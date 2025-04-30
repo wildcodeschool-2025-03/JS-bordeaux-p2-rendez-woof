@@ -1,17 +1,14 @@
-import { Link, Outlet } from "react-router";
+import { Outlet } from "react-router";
 import "./App.css";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
 
 function App() {
 	return (
 		<>
-			<header>
-				<nav>
-					<Link to="/">Accueil</Link>
-					<Link to="/myProfile">Mon profil</Link>
-					<Link to="/profiles">Découvrir des profils</Link>
-				</nav>
-			</header>
+			<Header />
 			<Outlet />
+			<Footer />
 		</>
 	);
 }
