@@ -1,8 +1,8 @@
 import { Link, Outlet } from "react-router";
 import "./reset.css";
 import "./App.css";
-import CardProfile from "./component/CardProfile/CardProfile/CardProfile";
 import { Toaster } from "sonner";
+import CardProfile from "./component/CardProfile/CardProfile";
 
 function App() {
 	return (

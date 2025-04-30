@@ -61,17 +61,12 @@ function CardProfile() {
 						<p>{dog.city}</p>
 					</div>
 					<img
-						src="src/assets/arrow-right-circle.png"
-						className="arrow-right-circle-img"
-						alt="logo-croix"
+						src="src/assets/icone_flipCard.png"
+						className="icone_flipCard-img"
+						alt="logo-flip"
 					/>
 				</div>
-				<img
-					id="photoDog"
-					className="photoDog"
-					src={dog.photo}
-					alt={dog.name}
-				/>
+				<img className="photoDog" src={dog.photo} alt={dog.name} />
 				<div className="logosProfile">
 					<button
 						type="button"
@@ -111,7 +106,6 @@ function CardProfile() {
 						/>
 					</button>
 				</div>
-				<img src="src/assets/dots.png" alt="dots" width="30" height="auto" />
 			</article>
 			<article
 				className="cardProfileback"
@@ -126,9 +120,9 @@ function CardProfile() {
 						<p>{dog.city}</p>
 					</div>
 					<img
-						className="arrow-right-circle-img"
-						src="src/assets/arrow-right-circle.png"
-						alt="logo-croix"
+						className="icone_flipCard-img"
+						src="src/assets/icone_flipCard.png"
+						alt="logo-flip"
 					/>
 				</div>
 				<div className="favorite-foods">
