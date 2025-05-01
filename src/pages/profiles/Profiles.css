@@ -1,0 +1,31 @@
+section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px 0px 50px 0px;
+}
+
+.profilesRecommended {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	width: 100%;
+
+	.card-2 {
+		display: none;
+	}
+	.card-3 {
+		display: none;
+	}
+}
+
+@media (min-width: 1024px) {
+	.profilesRecommended {
+		.card-2 {
+			display: block;
+		}
+		.card-3 {
+			display: block;
+		}
+	}
+}

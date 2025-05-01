@@ -1,24 +1,16 @@
-import { Link, Outlet } from "react-router";
-import "./reset.css";
+import { Outlet } from "react-router";
 import "./App.css";
 import { Toaster } from "sonner";
-import CardProfile from "./component/CardProfile/CardProfile";
+import Footer from "./component/Footer/Footer";
+import Header from "./component/Header/Header";
 
 function App() {
 	return (
 		<>
-			<header>
-				<nav>
-					<Link to="/">Accueil</Link>
-					<Link to="/myProfile">Mon profil</Link>
-					<Link to="/profiles">Découvrir des profils</Link>
-				</nav>
-			</header>
-			<main>
-				<Outlet />
-				<CardProfile />
-				<Toaster />
-			</main>
+			<Header />
+			<Outlet />
+			<Footer />
+			<Toaster />
 		</>
 	);
 }

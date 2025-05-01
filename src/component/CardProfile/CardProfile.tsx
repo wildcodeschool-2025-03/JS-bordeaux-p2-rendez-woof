@@ -47,142 +47,133 @@ function CardProfile() {
 	if (!dog) return;
 
 	return (
-		<ReactCardFlip flipDirection="horizontal" isFlipped={isFlipped}>
-			<article
-				className="cardProfile"
-				onClick={() => setIsFlipped(!isFlipped)}
-				onKeyUp={() => setIsFlipped(!isFlipped)}
-			>
-				<div className="cardTop">
-					<div className="infoDog">
-						<p className="nameDog">
-							{dog.name}, {dog.age} an{dog.age > 1 ? "s" : ""}
-						</p>
-						<p>{dog.city}</p>
-					</div>
-					<img
-						src="src/assets/icone_flipCard.png"
-						className="icone_flipCard-img"
-						alt="logo-flip"
-					/>
-				</div>
-				<img className="photoDog" src={dog.photo} alt={dog.name} />
-				<div className="logosProfile">
-					<button
-						type="button"
-						className="button"
-						onClick={(e) => {
-							e.stopPropagation();
-							handleDislike();
-							toast.success(`Tu as dislike ${dog.name} !`);
-						}}
-						aria-label="Refuser ce chien"
-					>
+		<>
+			<ReactCardFlip flipDirection="horizontal" isFlipped={isFlipped}>
+				<article
+					className="cardProfile"
+					onClick={() => setIsFlipped(!isFlipped)}
+					onKeyUp={() => setIsFlipped(!isFlipped)}
+				>
+					<div className="cardTop">
+						<div className="infoDog">
+							<p className="bold">
+								{dog.name}, {dog.age} an{dog.age > 1 ? "s" : ""}
+							</p>
+							<p className="raceCityDog">
+								{dog.race}, {dog.city}
+							</p>
+						</div>
 						<img
-							className="x-circle-img"
-							src="src/assets/x-circle.png"
-							alt="logo croix"
+							src="src/assets/images/icone_flipCard.png"
+							className="icone_flipCard-img"
+							alt="logo-flip"
 						/>
-					</button>
-					<img
-						src="src/assets/line-card.png"
-						className="line-card-img"
-						alt="line card"
-					/>
+					</div>
+					<img className="photosDogs" src={dog.photo} alt={dog.name} />
+					<div className="likeDislikeButtons">
+						<button
+							type="button"
+							onClick={(e) => {
+								e.stopPropagation();
+								handleDislike();
+								toast.success(`Tu as dislike ${dog.name} !`);
+							}}
+							aria-label="Refuser ce chien"
+						>
+							<img
+								src="src/assets/images/dislike_button.png"
+								alt="logo croix"
+							/>
+						</button>
+						<img
+							src="src/assets/images/separation_like_dislike.png"
+							alt="séparation entre le bouton like et le bouton dislike"
+						/>
 
-					<button
-						type="button"
-						className="button"
-						onClick={(e) => {
-							e.stopPropagation();
-							handleLike(dog);
-							toast.success(`Tu as liké ${dog.name} !`);
-						}}
-					>
-						<img
-							src="src/assets/heart.png"
-							className="heart-img"
-							alt="logo coeur"
-						/>
-					</button>
-				</div>
-			</article>
-			<article
-				className="cardProfileback"
-				onClick={() => setIsFlipped(!isFlipped)}
-				onKeyUp={() => setIsFlipped(!isFlipped)}
-			>
-				<div className="cardTop">
-					<div className="infoDog">
-						<p className="nameDog">
-							{dog.name}, {dog.age} an{dog.age > 1 ? "s" : ""}
-						</p>
-						<p>{dog.city}</p>
+						<button
+							type="button"
+							onClick={(e) => {
+								e.stopPropagation();
+								handleLike(dog);
+								toast.success(`Tu as liké ${dog.name} !`);
+							}}
+						>
+							<img src="src/assets/images/like_button.png" alt="logo coeur" />
+						</button>
 					</div>
-					<img
-						className="icone_flipCard-img"
-						src="src/assets/icone_flipCard.png"
-						alt="logo-flip"
-					/>
-				</div>
-				<div className="favorite-foods">
-					<p>🍽️</p>
-					<p>{dog.favorite_foods.join(", ")}</p>
-				</div>
-				<div className="phobias">
-					<p>😱</p>
-					<p>{dog.phobias.join(", ")}</p>
-				</div>
-				<div className="hobbies">
-					<p>🎯</p>
-					<p>{dog.hobbies.join(", ")}</p>
-				</div>
-				<div className="personnality">
-					<p>🐶</p>
-					<p>{dog.personality.join(", ")}</p>
-				</div>
-				<div className="logosProfile">
-					<button
-						type="button"
-						className="button"
-						onClick={(e) => {
-							e.stopPropagation();
-							handleDislike();
-							toast.success(`Tu as dislike ${dog.name} !`);
-						}}
-						aria-label="Refuser ce chien"
-					>
+				</article>
+				<article
+					className="cardProfileback"
+					onClick={() => setIsFlipped(!isFlipped)}
+					onKeyUp={() => setIsFlipped(!isFlipped)}
+				>
+					<div className="cardTop">
+						<div className="infoDog">
+							<p className="bold">
+								{dog.name}, {dog.age} an{dog.age > 1 ? "s" : ""}
+							</p>
+							<p className="raceCityDog">
+								{dog.race}, {dog.city}
+							</p>
+						</div>
 						<img
-							className="x-circle-img"
-							src="src/assets/x-circle.png"
-							alt="logo-croix"
+							src="src/assets/images/icone_flipCard.png"
+							className="icone_flipCard-img"
+							alt="icone flip card"
 						/>
-					</button>
-					<img
-						className="line-card-img"
-						src="src/assets/line-card.png"
-						alt="line card"
-					/>
-					<button
-						type="button"
-						className="button"
-						onClick={(e) => {
-							e.stopPropagation();
-							handleLike(dog);
-							toast.success(`Tu as liké ${dog.name} !`);
-						}}
-						aria-label="Aimer ce chien"
-					>
+					</div>
+					<div className="descriptionsDog">
+						<div className="descriptionDog">
+							<p className="iconeDescriptionDog">🍽️</p>
+							<p>{dog.favorite_foods.join(", ")}</p>
+						</div>
+						<div className="descriptionDog">
+							<p className="iconeDescriptionDog">😱</p>
+							<p>{dog.phobias.join(", ")}</p>
+						</div>
+						<div className="descriptionDog">
+							<p className="iconeDescriptionDog">🎯</p>
+							<p>{dog.hobbies.join(", ")}</p>
+						</div>
+						<div className="descriptionDog">
+							<p className="iconeDescriptionDog">🐶</p>
+							<p>{dog.personality.join(", ")}</p>
+						</div>
+					</div>
+					<div className="likeDislikeButtons">
+						<button
+							type="button"
+							onClick={(e) => {
+								e.stopPropagation();
+								handleDislike();
+								toast.success(`Tu as dislike ${dog.name} !`);
+							}}
+							aria-label="Refuser ce chien"
+						>
+							<img
+								src="src/assets/images/dislike_button.png"
+								alt="bouton dislike"
+							/>
+						</button>
 						<img
-							src="src/assets/heart.png"
-							className="heart-img"
-							alt="logo coeur"
+							src="src/assets/images/separation_like_dislike.png"
+							alt="séparation entre le bouton like et le bouton dislike"
 						/>
-					</button>
-				</div>
-				<img src="src/assets/dots.png" className="dots-img" alt="dots" />
-			</article>
-		</ReactCardFlip>
+						<button
+							type="button"
+							onClick={(e) => {
+								e.stopPropagation();
+								handleLike(dog);
+								toast.success(`Tu as liké ${dog.name} !`);
+							}}
+							aria-label="Aimer ce chien"
+						>
+							<img src="src/assets/images/like_button.png" alt="bouton like" />
+						</button>
+					</div>
+				</article>
+			</ReactCardFlip>
+		</>
 	);
 }
 

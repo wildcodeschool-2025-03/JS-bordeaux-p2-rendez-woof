@@ -11,6 +11,7 @@ export interface DogType {
 	favorite_foods: string[];
 	phobias: string[];
 	hobbies: string[];
+	race: string;
 }
 
 interface LikesContextType {

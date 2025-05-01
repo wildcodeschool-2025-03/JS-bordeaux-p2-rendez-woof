@@ -6,45 +6,52 @@
 	--border-color: #ff3c14;
 }
 
-body {
-	font-size: 16px;
-	margin: 0 auto;
-	padding: 2rem;
-	text-align: center;
+@font-face {
+	font-family: "Chela One";
+	src: url("./assets/font/Chela_One/ChelaOne-Regular.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
 }
 
 h1 {
 	font-size: 2rem;
+	font-family: "Chela One", cursive;
+	color: var(--main-color);
 }
 
 h2 {
-	font-size: 1.5rem;
+	font-size: 1.2rem;
+	font-weight: normal;
+	padding-bottom: 40px;
 }
 
 p {
 	font-size: 1rem;
 }
 
-.cardProfil,
-.cardProfilback {
-	width: 300px; /* ou une autre largeur adaptée */
-	height: auto;
-	margin: 0 auto;
-	background-color: var(--background-color-body);
-	border-radius: 10px;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-	transition: transform 0.6s;
-	backface-visibility: hidden;
+.bold {
+	font-weight: bold;
 }
 
-.react-card-flip {
-	width: 300px;
-	margin: auto;
-}
-
-.cardTop {
+body {
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 1rem;
+	flex-direction: column;
+	text-align: center;
+	background-color: var(--background-color-body);
+	color: var(--text-color);
+}
+
+@media (min-width: 1024px) {
+	h1 {
+		font-size: 2.8rem;
+		display: flex;
+		align-items: center;
+	}
+
+	h2 {
+		font-size: 2rem;
+	}
+	p {
+		font-size: 1.1rem;
+	}
 }
