@@ -65,7 +65,7 @@ function CardProfile() {
 						</div>
 						<img
 							src="src/assets/images/icone_flipCard.png"
-							className="icone_flipCard-img"
+							className="iconFlipCard"
 							alt="logo-flip"
 						/>
 					</div>
@@ -118,7 +118,7 @@ function CardProfile() {
 						</div>
 						<img
 							src="src/assets/images/icone_flipCard.png"
-							className="icone_flipCard-img"
+							className="iconFlipCard"
 							alt="icone flip card"
 						/>
 					</div>
