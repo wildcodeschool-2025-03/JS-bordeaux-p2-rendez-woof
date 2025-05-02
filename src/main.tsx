@@ -3,9 +3,14 @@ import "./reset.css";
 import "./index.css";
 import { RouterProvider } from "react-router";
 import router from "./Router";
+import { LikesProvider } from "./component/LikeContext/LikesContext";
 
 const rootElement = document.getElementById("root");
 
-if (rootElement != null) {
-	ReactDOM.createRoot(rootElement).render(<RouterProvider router={router} />);
+if (rootElement) {
+	ReactDOM.createRoot(rootElement).render(
+		<LikesProvider>
+			<RouterProvider router={router} />
+		</LikesProvider>,
+	);
 }
