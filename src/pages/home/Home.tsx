@@ -1,6 +1,9 @@
 import "./Home.css";
 
+import Likes from "../../components/Likes";
+
 function Home() {
-	return <p>Accueil</p>;
+	return <Likes />;
 }
+
 export default Home;
