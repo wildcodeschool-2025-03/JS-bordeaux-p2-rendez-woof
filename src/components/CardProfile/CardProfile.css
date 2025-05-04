@@ -1,4 +1,5 @@
-.cardProfile {
+.cardProfile,
+.cardProfileback {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -31,42 +32,6 @@
 	.photosDogs {
 		width: 100%;
 		height: 50%;
-	}
-
-	.likeDislikeButtons {
-		display: flex;
-		justify-content: space-evenly;
-		width: 100%;
-		padding-bottom: 20px;
-	}
-}
-
-.cardProfileback {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-between;
-	width: 280px;
-	height: 420px;
-	background-color: #efede6;
-	color: var(--text-color);
-	padding: 10px 0px;
-	gap: 20px;
-	border-radius: 5px;
-
-	.cardTop {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		width: 100%;
-		padding: 0px 10px;
-
-		#infoDog {
-			display: flex;
-			flex-direction: column;
-			align-items: flex-start;
-			color: var(--main-color);
-		}
 	}
 
 	.descriptionsDog {

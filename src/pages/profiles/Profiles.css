@@ -3,9 +3,78 @@ section {
 	flex-direction: column;
 	align-items: center;
 	padding: 20px 0px 50px 0px;
+
+	.filtersBar {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		padding: 0px 10px 20px 10px;
+
+		#filterImage {
+			margin-top: 5px;
+		}
+
+		.fourFilters {
+			display: flex;
+			width: 100%;
+			justify-content: center;
+			gap: 5px;
+
+			.filter {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				min-height: 100px;
+				width: 60px; /* pour que les filtres aient une largeur cohérente */
+				box-sizing: border-box;
+
+				.filterButton {
+					background: none;
+					border: none;
+				}
+
+				.searchBar {
+					border-radius: 15px;
+					margin-top: 8px;
+					transition: opacity 0.3s ease;
+					width: 130px;
+					height: 30px;
+					padding-left: 8px;
+					opacity: 0;
+					visibility: hidden;
+					position: absolute;
+					pointer-events: none;
+				}
+
+				.ageRange {
+					display: flex;
+					flex-direction: column;
+					width: 200px;
+					opacity: 0;
+					visibility: hidden;
+					position: absolute;
+					pointer-events: none;
+
+					#tickmarks {
+						font-size: 9px;
+					}
+				}
+
+				datalist {
+					display: flex;
+					justify-content: flex-start;
+					gap: 20px;
+					width: 80%;
+					padding: 3px 30px 0px 0px;
+					font-size: 14px;
+				}
+			}
+		}
+	}
 }
 
-.profilesRecommended {
+.profilesFiltered {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
@@ -19,8 +88,91 @@ section {
 	}
 }
 
+.visibleInput {
+	opacity: 1 !important;
+	visibility: visible !important;
+	position: static !important;
+	pointer-events: auto !important;
+}
+
 @media (min-width: 1024px) {
-	.profilesRecommended {
+	section {
+		.filtersBar {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: flex-start;
+			padding: 0px 10px 20px 10px;
+
+			#filterImage {
+				margin-top: 5px;
+				margin-left: 50px;
+			}
+
+			.fourFilters {
+				display: flex;
+				width: 100%;
+				justify-content: space-evenly;
+				gap: 5px;
+
+				.filter {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					min-height: 100px;
+					width: 60px; /* pour que les filtres aient une largeur cohérente */
+					box-sizing: border-box;
+
+					.filterButton {
+						background: none;
+						border: none;
+					}
+
+					.searchBar {
+						border-radius: 15px;
+						margin-top: 8px;
+						transition: opacity 0.3s ease;
+						width: 130px;
+						height: 30px;
+						padding-left: 8px;
+						display: block !important;
+						opacity: 1 !important;
+						visibility: visible !important;
+						position: static !important;
+						pointer-events: auto !important;
+					}
+
+					.ageRange {
+						display: flex;
+						flex-direction: column;
+						width: 200px;
+						display: block !important;
+						opacity: 1 !important;
+						visibility: visible !important;
+						position: static !important;
+						pointer-events: auto !important;
+
+						#tickmarks {
+							font-size: 9px;
+						}
+					}
+
+					.hidden {
+						datalist {
+							display: flex;
+							justify-content: flex-start;
+							gap: 20px;
+							width: 80%;
+							padding: 3px 30px 0px 0px;
+							font-size: 14px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.profilesFiltered {
 		.card-2 {
 			display: block;
 		}

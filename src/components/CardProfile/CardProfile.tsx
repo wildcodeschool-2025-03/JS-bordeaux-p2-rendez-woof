@@ -39,8 +39,8 @@ function CardProfile({ dog }: CardProfileProps) {
 					</div>
 					<img
 						src="src/assets/images/icone_flipCard.png"
-						width="50"
-						height="50"
+						width="30"
+						height="30"
 						alt="icone flip-card"
 					/>
 				</div>
@@ -82,8 +82,8 @@ function CardProfile({ dog }: CardProfileProps) {
 					</div>
 					<img
 						src="src/assets/images/icone_flipCard.png"
-						width="50"
-						height="50"
+						width="30"
+						height="30"
 						alt="icone flip-card"
 					/>
 				</div>
