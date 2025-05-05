@@ -1,18 +1,21 @@
 import { useEffect, useState } from "react";
 import CardProfile from "../../components/CardProfile/CardProfile";
 import "./Profiles.css";
+import Select from "react-select";
 
 function Profiles() {
 	const [dog, setDog] = useState([]);
-	const [filterLocality, setFilterLocality] = useState("");
-	const [filterRace, setFilterRace] = useState("");
+	const [searchLocality, setSearchLocality] = useState("");
+	const [selectedRaces, setSelectedRaces] = useState([]);
+	const [racesOptions, setRacesOptions] = useState([]);
 	const [valueAge, setValueAge] = useState("1");
-	const [filterHobbies, setFilterHobbies] = useState("");
+	const [selectedHobbies, setSelectedHobbies] = useState([]);
+	const [hobbiesOptions, setHobbiesOptions] = useState([]);
 
-	const [searchLocality, setSearchLocality] = useState(false);
-	const [searchRace, setSearchRace] = useState(false);
-	const [searchAge, setSearchAge] = useState(false);
-	const [searchHobbies, setSearchHobbies] = useState(false);
+	const [isSearchBarLocality, setIsSearchBarLocality] = useState(false);
+	const [isMultiSelectRace, setIsMultiSelectRace] = useState(false);
+	const [isSliderAge, setIsSliderAge] = useState(false);
+	const [isMultiSelectHobbies, setIsMultiSelectHobbies] = useState(false);
 
 	const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
 
@@ -21,7 +24,32 @@ function Profiles() {
 			"https://my-json-server.typicode.com/wildcodeschool-2025-03/JS-bordeaux-p2-api-rendez-woof/dogs",
 		)
 			.then((response) => response.json())
-			.then((data) => setDog(data));
+			.then((data) => {
+				setDog(data);
+
+				const uniqueRaces = Array.from(
+					new Set(data.map((dog) => dog.race.toLowerCase())),
+				);
+
+				const formattedRaces = uniqueRaces.map((race) => ({
+					value: race,
+					label: race.charAt(0).toUpperCase() + race.slice(1),
+				}));
+
+				setRacesOptions(formattedRaces);
+
+				const allHobbies = data.flatMap((dog) => dog.hobbies);
+				const uniqueHobbies = Array.from(
+					new Set(allHobbies.map((h) => h.toLowerCase())),
+				);
+
+				const formattedHobbies = uniqueHobbies.map((hobby) => ({
+					value: hobby,
+					label: hobby.charAt(0).toUpperCase() + hobby.slice(1),
+				}));
+
+				setHobbiesOptions(formattedHobbies);
+			});
 	}, []);
 
 	useEffect(() => {
@@ -30,135 +58,182 @@ function Profiles() {
 		return () => window.removeEventListener("resize", handleResize);
 	}, []);
 
+	useEffect(() => {
+		if (!isMobile) {
+			setIsSearchBarLocality(true);
+			setIsMultiSelectRace(true);
+			setIsSliderAge(true);
+			setIsMultiSelectHobbies(true);
+		}
+	}, [isMobile]);
+
 	const filteredDogs = dog.filter((dog) => {
 		const age = dog.age;
 		const isInAgeRange =
-			(valueAge >= "1" && valueAge <= "3" && age >= 1 && age <= 3) ||
-			(valueAge >= "4" && valueAge <= "6" && age >= 4 && age <= 6) ||
-			(valueAge >= "7" && valueAge <= "9" && age >= 7 && age <= 9) ||
-			(valueAge >= "10" && age >= 10);
+			(valueAge === "1" && age >= 1 && age <= 3) ||
+			(valueAge === "2" && age >= 4 && age <= 6) ||
+			(valueAge === "3" && age >= 7 && age <= 9) ||
+			(valueAge === "4" && age >= 10);
 
 		return (
-			dog.city.toLowerCase().includes(filterLocality.toLowerCase()) &&
-			dog.race.toLowerCase().includes(filterRace.toLowerCase()) &&
+			dog.city.toLowerCase().includes(searchLocality.toLowerCase()) &&
+			(selectedRaces.length === 0 ||
+				selectedRaces.some(
+					(race) => race.value.toLowerCase() === dog.race.toLowerCase(),
+				)) &&
 			isInAgeRange &&
-			dog.hobbies.some((hobby) =>
-				hobby.toLowerCase().includes(filterHobbies.toLowerCase()),
-			)
+			(selectedHobbies.length === 0 ||
+				selectedHobbies.some((selected) =>
+					dog.hobbies
+						.map((h) => h.toLowerCase())
+						.includes(selected.value.toLowerCase()),
+				))
 		);
 	});
+
+	const handleChangeRace = (selectedRace) => {
+		setSelectedRaces(selectedRace);
+	};
 
 	return (
 		<main>
 			<section className="profiles">
 				<h2>Profils</h2>
 
-				<div className="filtersBar">
+				<div className="filters">
 					<img
-						id="filterImage"
+						id="filterLogo"
 						src="src/assets/images/filter_image.png"
 						alt="icone filtre"
 						width="20"
 						height="20"
 					/>
-					<div className="fourFilters">
-						{[
-							{
-								label: "Localité",
-								state: searchLocality,
-								setter: setSearchLocality,
-								value: filterLocality,
-								onChange: setFilterLocality,
-								placeholder: "Saisis une ville",
-							},
-							{
-								label: "Race",
-								state: searchRace,
-								setter: setSearchRace,
-								value: filterRace,
-								onChange: setFilterRace,
-								placeholder: "Saisis une race",
-							},
-							{
-								label: "Ages",
-								state: searchAge,
-								setter: setSearchAge,
-								isAge: true,
-							},
-							{
-								label: "Hobbies",
-								state: searchHobbies,
-								setter: setSearchHobbies,
-								value: filterHobbies,
-								onChange: setFilterHobbies,
-								placeholder: "Saisis un hobby",
-							},
-						].map((filter, index) => (
-							<div className="filter" key={index.id}>
-								<button
-									className="filterButton"
-									type="button"
-									onClick={() => {
-										if (!isMobile) return;
-										filter.setter(!filter.state);
-										[
-											setSearchLocality,
-											setSearchRace,
-											setSearchAge,
-											setSearchHobbies,
-										].forEach((s, idx) => {
-											if (
-												s !== filter.setter &&
-												[searchLocality, searchRace, searchAge, searchHobbies][
-													idx
-												]
-											) {
-												s(false);
-											}
-										});
-									}}
-								>
-									{filter.label}
-								</button>
-								{(isMobile && filter.state) || !isMobile ? (
-									filter.isAge ? (
-										<div
-											className={`ageRange ${filter.state ? "visibleInput" : ""}`}
-										>
-											<input
-												type="range"
-												min="1"
-												max="15"
-												step="1"
-												list="tickmarks"
-												value={valueAge}
-												onChange={(event) => setValueAge(event.target.value)}
-											/>
-											<datalist id="tickmarks">
-												<option value="1" label="1 an" />
-												<option value="4" label="4 ans" />
-												<option value="7" label="7 ans" />
-												<option value="10" label="10 ans et +" />
-											</datalist>
-										</div>
-									) : (
-										<input
-											className={`searchBar ${filter.state ? "visibleInput" : ""}`}
-											type="text"
-											value={filter.value}
-											onChange={(e) => filter.onChange(e.target.value)}
-											placeholder={filter.placeholder}
-										/>
-									)
-								) : null}
+					<div className="filterUse">
+						<button
+							className="filterButton"
+							type="button"
+							onClick={() => {
+								if (isMobile) {
+									setIsSearchBarLocality(!isSearchBarLocality);
+									setIsMultiSelectRace(false);
+									setIsSliderAge(false);
+									setIsMultiSelectHobbies(false);
+								}
+							}}
+						>
+							Localité
+						</button>
+						{isSearchBarLocality && (
+							<input
+								type="text"
+								id="searchBar"
+								value={searchLocality}
+								onChange={(event) => setSearchLocality(event.target.value)}
+								placeholder="Saisis une ville"
+							/>
+						)}
+					</div>
+					<div className="filterUse">
+						<button
+							className="filterButton"
+							type="button"
+							onClick={() => {
+								if (isMobile) {
+									setIsMultiSelectRace(!isMultiSelectRace);
+									setIsSearchBarLocality(false);
+									setIsSliderAge(false);
+									setIsMultiSelectHobbies(false);
+								}
+							}}
+						>
+							Race
+						</button>
+						{isMultiSelectRace && (
+							<Select
+								className="multiSelect"
+								options={racesOptions}
+								isMulti
+								value={selectedRaces}
+								onChange={handleChangeRace}
+								placeholder="Sélectionne une ou plusieurs races"
+							/>
+						)}
+					</div>
+
+					<div className="filterUse">
+						<button
+							className="filterButton"
+							type="button"
+							onClick={() => {
+								if (isMobile) {
+									setIsSliderAge(!isSliderAge);
+									setIsSearchBarLocality(false);
+									setIsMultiSelectRace(false);
+									setIsMultiSelectHobbies(false);
+								}
+							}}
+						>
+							Ages
+						</button>
+
+						{isSliderAge && (
+							<div className="ageRange visibleInput">
+								<input
+									id="ageRange"
+									type="range"
+									min="1"
+									max="4"
+									step="1"
+									value={valueAge}
+									onChange={(event) => setValueAge(event.target.value)}
+									list="tickmarks"
+								/>
+								<datalist id="tickmarks">
+									<option value="1" />
+									<option value="2" />
+									<option value="3" />
+									<option value="4" />
+								</datalist>
+								<div className="ticks-labels">
+									<span>1-3 ans</span>
+									<span>4-6 ans</span>
+									<span>7-9 ans</span>
+									<span>10 ans et +</span>
+								</div>
 							</div>
-						))}
+						)}
+					</div>
+					<div className="filterUse">
+						<button
+							className="filterButton"
+							type="button"
+							onClick={() => {
+								if (isMobile) {
+									setIsMultiSelectHobbies(!isMultiSelectHobbies);
+									setIsSearchBarLocality(false);
+									setIsSliderAge(false);
+									setIsMultiSelectRace(false);
+								}
+							}}
+						>
+							Hobbies
+						</button>
+						{isMultiSelectHobbies && (
+							<Select
+								className="multiSelect"
+								options={hobbiesOptions}
+								isMulti
+								value={selectedHobbies}
+								onChange={(selected) => setSelectedHobbies(selected)}
+								placeholder="Sélectionne un ou plusieurs hobbies"
+							/>
+						)}
 					</div>
 				</div>
 
 				<div className="profilesFiltered">
 					{filteredDogs.length > 0 ? (
-						filteredDogs.slice(0, isMobile ? 1 : 3).map((dog, index) => (
+						filteredDogs.slice(1, isMobile ? 2 : 4).map((dog, index) => (
 							<div key={dog.id} className={`card-${index + 1}`}>
 								<CardProfile dog={dog} />
 							</div>
@@ -174,17 +249,7 @@ function Profiles() {
 					Recommandations :<br />
 					tu risques de trouver l'âme chien ici !
 				</h2>
-				<div className="profilesFiltered">
-					{filteredDogs.length > 0 ? (
-						filteredDogs.slice(1, isMobile ? 2 : 4).map((dog, index) => (
-							<div key={dog.id} className={`card-${index + 1}`}>
-								<CardProfile dog={dog} />
-							</div>
-						))
-					) : (
-						<p>Aucune recommandation pour l’instant.</p>
-					)}
-				</div>
+				<p>Aucune recommandation pour l’instant.</p>
 			</section>
 		</main>
 	);
