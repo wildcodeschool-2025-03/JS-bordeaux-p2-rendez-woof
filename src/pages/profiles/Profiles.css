@@ -33,7 +33,7 @@ section {
 	}
 
 	.filtersUse {
-		padding-bottom: 50px;
+		padding-bottom: 3.125rem;
 
 		#searchBar {
 			max-height: 30px;
@@ -96,15 +96,15 @@ section {
 				justify-content: space-between;
 				min-height: 40px;
 				width: 100%;
-				padding: 0px 105px;
+				padding: 0rem 7.5rem 0rem 4.375rem;
 			}
 		}
 
 		.filtersUse {
 			display: flex;
+			width: 100%;
 			justify-content: space-between;
-			gap: 40px;
-			padding-left: 50px;
+			padding: 0rem 3rem 3.125rem 3rem;
 
 			#searchBar {
 				max-height: 30px;
