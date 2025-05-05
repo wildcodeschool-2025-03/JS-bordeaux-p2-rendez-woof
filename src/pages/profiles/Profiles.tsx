@@ -4,20 +4,26 @@ import "./Profiles.css";
 import Select from "react-select";
 
 function Profiles() {
+	const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
 	const [dog, setDog] = useState([]);
+
+	const [isLocalityClicked, setIsLocalityClicked] = useState(false);
+	const [isSearchBarLocality, setIsSearchBarLocality] = useState(false);
 	const [searchLocality, setSearchLocality] = useState("");
+
+	const [isRacesClicked, setIsRacesClicked] = useState(false);
+	const [isMultiSelectRace, setIsMultiSelectRace] = useState(false);
 	const [selectedRaces, setSelectedRaces] = useState([]);
 	const [racesOptions, setRacesOptions] = useState([]);
+
+	const [isAgesClicked, setIsAgesClicked] = useState(false);
+	const [isSliderAge, setIsSliderAge] = useState(false);
 	const [valueAge, setValueAge] = useState("1");
+
+	const [isHobbiesClicked, setIsHobbiesClicked] = useState(false);
+	const [isMultiSelectHobbies, setIsMultiSelectHobbies] = useState(false);
 	const [selectedHobbies, setSelectedHobbies] = useState([]);
 	const [hobbiesOptions, setHobbiesOptions] = useState([]);
-
-	const [isSearchBarLocality, setIsSearchBarLocality] = useState(false);
-	const [isMultiSelectRace, setIsMultiSelectRace] = useState(false);
-	const [isSliderAge, setIsSliderAge] = useState(false);
-	const [isMultiSelectHobbies, setIsMultiSelectHobbies] = useState(false);
-
-	const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
 
 	useEffect(() => {
 		fetch(
@@ -33,19 +39,19 @@ function Profiles() {
 
 				const formattedRaces = uniqueRaces.map((race) => ({
 					value: race,
-					label: race.charAt(0).toUpperCase() + race.slice(1),
+					label: race.toLowerCase(),
 				}));
 
 				setRacesOptions(formattedRaces);
 
 				const allHobbies = data.flatMap((dog) => dog.hobbies);
 				const uniqueHobbies = Array.from(
-					new Set(allHobbies.map((h) => h.toLowerCase())),
+					new Set(allHobbies.map((hobby) => hobby.toLowerCase())),
 				);
 
 				const formattedHobbies = uniqueHobbies.map((hobby) => ({
 					value: hobby,
-					label: hobby.charAt(0).toUpperCase() + hobby.slice(1),
+					label: hobby.toLowerCase(),
 				}));
 
 				setHobbiesOptions(formattedHobbies);
@@ -67,6 +73,10 @@ function Profiles() {
 		}
 	}, [isMobile]);
 
+	const handleChangeRace = (selectedRace) => {
+		setSelectedRaces(selectedRace);
+	};
+
 	const filteredDogs = dog.filter((dog) => {
 		const age = dog.age;
 		const isInAgeRange =
@@ -75,25 +85,26 @@ function Profiles() {
 			(valueAge === "3" && age >= 7 && age <= 9) ||
 			(valueAge === "4" && age >= 10);
 
-		return (
-			dog.city.toLowerCase().includes(searchLocality.toLowerCase()) &&
-			(selectedRaces.length === 0 ||
-				selectedRaces.some(
-					(race) => race.value.toLowerCase() === dog.race.toLowerCase(),
-				)) &&
-			isInAgeRange &&
-			(selectedHobbies.length === 0 ||
-				selectedHobbies.some((selected) =>
-					dog.hobbies
-						.map((h) => h.toLowerCase())
-						.includes(selected.value.toLowerCase()),
-				))
-		);
-	});
+		const matchesLocality = dog.city
+			.toLowerCase()
+			.includes(searchLocality.toLowerCase());
 
-	const handleChangeRace = (selectedRace) => {
-		setSelectedRaces(selectedRace);
-	};
+		const matchesRace =
+			selectedRaces.length === 0 ||
+			selectedRaces.some((race) =>
+				race.value.toLowerCase().includes(dog.race.toLowerCase()),
+			);
+
+		const matchesHobbies =
+			selectedHobbies.length === 0 ||
+			selectedHobbies.some((selected) =>
+				dog.hobbies
+					.map((hobby) => hobby.toLowerCase())
+					.includes(selected.value.toLowerCase()),
+			);
+
+		return matchesLocality && matchesRace && isInAgeRange && matchesHobbies;
+	});
 
 	return (
 		<main>
@@ -108,12 +119,16 @@ function Profiles() {
 						width="20"
 						height="20"
 					/>
-					<div className="filterUse">
+					<div className="filtersButtons">
 						<button
-							className="filterButton"
+							className={`filterButton ${isLocalityClicked ? "green" : ""} ${isLocalityClicked ? "bold" : ""}`}
 							type="button"
 							onClick={() => {
 								if (isMobile) {
+									setIsLocalityClicked(!isLocalityClicked);
+									setIsRacesClicked(false);
+									setIsAgesClicked(false);
+									setIsHobbiesClicked(false);
 									setIsSearchBarLocality(!isSearchBarLocality);
 									setIsMultiSelectRace(false);
 									setIsSliderAge(false);
@@ -123,22 +138,15 @@ function Profiles() {
 						>
 							Localité
 						</button>
-						{isSearchBarLocality && (
-							<input
-								type="text"
-								id="searchBar"
-								value={searchLocality}
-								onChange={(event) => setSearchLocality(event.target.value)}
-								placeholder="Saisis une ville"
-							/>
-						)}
-					</div>
-					<div className="filterUse">
 						<button
-							className="filterButton"
+							className={`filterButton ${isRacesClicked ? "green" : ""} ${isRacesClicked ? "bold" : ""}`}
 							type="button"
 							onClick={() => {
 								if (isMobile) {
+									setIsRacesClicked(!isRacesClicked);
+									setIsLocalityClicked(false);
+									setIsAgesClicked(false);
+									setIsHobbiesClicked(false);
 									setIsMultiSelectRace(!isMultiSelectRace);
 									setIsSearchBarLocality(false);
 									setIsSliderAge(false);
@@ -146,26 +154,17 @@ function Profiles() {
 								}
 							}}
 						>
-							Race
+							Races
 						</button>
-						{isMultiSelectRace && (
-							<Select
-								className="multiSelect"
-								options={racesOptions}
-								isMulti
-								value={selectedRaces}
-								onChange={handleChangeRace}
-								placeholder="Sélectionne une ou plusieurs races"
-							/>
-						)}
-					</div>
-
-					<div className="filterUse">
 						<button
-							className="filterButton"
+							className={`filterButton ${isAgesClicked ? "green" : ""} ${isAgesClicked ? "bold" : ""}`}
 							type="button"
 							onClick={() => {
 								if (isMobile) {
+									setIsAgesClicked(!isAgesClicked);
+									setIsLocalityClicked(false);
+									setIsRacesClicked(false);
+									setIsHobbiesClicked(false);
 									setIsSliderAge(!isSliderAge);
 									setIsSearchBarLocality(false);
 									setIsMultiSelectRace(false);
@@ -175,40 +174,15 @@ function Profiles() {
 						>
 							Ages
 						</button>
-
-						{isSliderAge && (
-							<div className="ageRange visibleInput">
-								<input
-									id="ageRange"
-									type="range"
-									min="1"
-									max="4"
-									step="1"
-									value={valueAge}
-									onChange={(event) => setValueAge(event.target.value)}
-									list="tickmarks"
-								/>
-								<datalist id="tickmarks">
-									<option value="1" />
-									<option value="2" />
-									<option value="3" />
-									<option value="4" />
-								</datalist>
-								<div className="ticks-labels">
-									<span>1-3 ans</span>
-									<span>4-6 ans</span>
-									<span>7-9 ans</span>
-									<span>10 ans et +</span>
-								</div>
-							</div>
-						)}
-					</div>
-					<div className="filterUse">
 						<button
-							className="filterButton"
+							className={`filterButton ${isHobbiesClicked ? "green" : ""} ${isHobbiesClicked ? "bold" : ""}`}
 							type="button"
 							onClick={() => {
 								if (isMobile) {
+									setIsHobbiesClicked(!isHobbiesClicked);
+									setIsLocalityClicked(false);
+									setIsRacesClicked(false);
+									setIsAgesClicked(false);
 									setIsMultiSelectHobbies(!isMultiSelectHobbies);
 									setIsSearchBarLocality(false);
 									setIsSliderAge(false);
@@ -218,22 +192,70 @@ function Profiles() {
 						>
 							Hobbies
 						</button>
-						{isMultiSelectHobbies && (
-							<Select
-								className="multiSelect"
-								options={hobbiesOptions}
-								isMulti
-								value={selectedHobbies}
-								onChange={(selected) => setSelectedHobbies(selected)}
-								placeholder="Sélectionne un ou plusieurs hobbies"
-							/>
-						)}
 					</div>
+				</div>
+
+				<div className="filtersUse">
+					{isSearchBarLocality && (
+						<input
+							type="text"
+							id="searchBar"
+							value={searchLocality}
+							onChange={(event) => setSearchLocality(event.target.value)}
+							placeholder="Saisis une ville"
+						/>
+					)}
+					{isMultiSelectRace && (
+						<Select
+							className="multiSelect"
+							options={racesOptions}
+							isMulti
+							value={selectedRaces}
+							onChange={handleChangeRace}
+							placeholder="Sélectionne une ou plusieurs races"
+						/>
+					)}
+					{isSliderAge && (
+						<div className="ageRange">
+							<input
+								id="ageRange"
+								type="range"
+								min="1"
+								max="4"
+								step="1"
+								value={valueAge}
+								onChange={(event) => setValueAge(event.target.value)}
+								list="tickmarks"
+							/>
+							<datalist id="tickmarks">
+								<option value="1" />
+								<option value="2" />
+								<option value="3" />
+								<option value="4" />
+							</datalist>
+							<div className="ticks-labels">
+								<span>1-3 ans</span>
+								<span>4-6 ans</span>
+								<span>7-9 ans</span>
+								<span>10 ans et +</span>
+							</div>
+						</div>
+					)}
+					{isMultiSelectHobbies && (
+						<Select
+							className="multiSelect"
+							options={hobbiesOptions}
+							isMulti
+							value={selectedHobbies}
+							onChange={(selected) => setSelectedHobbies(selected)}
+							placeholder="Sélectionne un ou plusieurs hobbies"
+						/>
+					)}
 				</div>
 
 				<div className="profilesFiltered">
 					{filteredDogs.length > 0 ? (
-						filteredDogs.slice(1, isMobile ? 2 : 4).map((dog, index) => (
+						filteredDogs.slice(0, isMobile ? 1 : 3).map((dog, index) => (
 							<div key={dog.id} className={`card-${index + 1}`}>
 								<CardProfile dog={dog} />
 							</div>

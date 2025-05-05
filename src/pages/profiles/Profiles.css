@@ -7,58 +7,59 @@ section {
 	.filters {
 		display: flex;
 		width: 100%;
-		justify-content: center;
+		justify-content: space-evenly;
 
 		#filterLogo {
 			margin-top: 5px;
+			margin-left: 20px;
 		}
 
-		.filterUse {
+		.filtersButtons {
 			display: flex;
-			flex-direction: column;
-			align-items: center;
-			min-height: 100px;
-			width: 60px;
+			align-items: flex-start;
+			justify-content: space-evenly;
+			width: 100%;
+			min-height: 40px;
 
 			.filterButton {
 				background: none;
 				border: none;
 			}
 
-			.searchBar {
-				border-radius: 15px;
-				margin-top: 8px;
-				transition: opacity 0.3s ease;
-				width: 130px;
-				height: 30px;
-				padding-left: 8px;
-				opacity: 0;
-				visibility: hidden;
-				position: absolute;
-				pointer-events: none;
+			.green {
+				color: var(--border-color);
 			}
+		}
+	}
 
-			.multiSelect {
-				width: 200px;
-				font-size: 12px;
-			}
+	.filtersUse {
+		padding-bottom: 50px;
 
-			.ageRange {
-				display: flex;
-				flex-direction: column;
-				width: 200px;
-			}
+		#searchBar {
+			max-height: 30px;
+		}
+		.multiSelect {
+			width: 200px;
+			font-size: 12px;
+		}
 
-			.ticks-labels {
-				display: flex;
-				justify-content: space-between;
-				font-size: 10px;
-			}
+		.ageRange {
+			display: flex;
+			flex-direction: column;
+			width: 200px;
+		}
 
-			.ticks-labels span {
-				flex: 1;
-				text-align: center;
-			}
+		.ticks-labels {
+			display: flex;
+			justify-content: space-between;
+			gap: 20px;
+			font-size: 10px;
+		}
+
+		.ticks-labels span {
+			flex: 1;
+			text-align: center;
+			padding-top: 5px;
 		}
 	}
 }
@@ -77,13 +78,6 @@ section {
 	}
 }
 
-.visibleInput {
-	opacity: 1 !important;
-	visibility: visible !important;
-	position: static !important;
-	pointer-events: auto !important;
-}
-
 @media (min-width: 1024px) {
 	section {
 		.filters {
@@ -96,50 +90,42 @@ section {
 				margin-left: 20px;
 			}
 
-			.filterUse {
+			.filtersButtons {
+				display: flex;
+				align-items: flex-start;
+				justify-content: space-between;
+				min-height: 40px;
+				width: 100%;
+				padding: 0px 105px;
+			}
+		}
+
+		.filtersUse {
+			display: flex;
+			justify-content: space-between;
+			gap: 40px;
+			padding-left: 50px;
+
+			#searchBar {
+				max-height: 30px;
+			}
+
+			.ageRange {
 				display: flex;
 				flex-direction: column;
-				align-items: center;
-				min-height: 100px;
-				width: 100%; /* pour que les filtres aient une largeur cohérente */
-				box-sizing: border-box;
+				width: 200px;
+			}
 
-				.filterButton {
-					background: none;
-					border: none;
-				}
+			.ticks-labels {
+				gap: 15px;
+				font-size: 11px;
+				line-height: 100%;
+				padding-top: 5px;
+			}
 
-				.searchBar {
-					border-radius: 15px;
-					margin-top: 8px;
-					transition: opacity 0.3s ease;
-					width: 130px;
-					height: 30px;
-					padding-left: 8px;
-					display: block !important;
-					opacity: 1 !important;
-					visibility: visible !important;
-					position: static !important;
-					pointer-events: auto !important;
-				}
-
-				.ageRange {
-					display: flex;
-					flex-direction: column;
-					width: 200px;
-				}
-
-				.ticks-labels {
-					gap: 15px;
-					font-size: 11px;
-					line-height: 100%;
-					padding-top: 5px;
-				}
-
-				.ticks-labels span {
-					flex: 1;
-					text-align: center;
-				}
+			.ticks-labels span {
+				flex: 1;
+				text-align: center;
 			}
 		}
 	}
