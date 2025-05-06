@@ -1,21 +1,10 @@
 import { useState } from "react";
 import "./CardProfile.css";
 import ReactCardFlip from "react-card-flip";
+import type { Dog } from "../../types/Dog";
 
 interface CardProfileProps {
-	dog: {
-		id: number;
-		name: string;
-		age: number;
-		race: string;
-		size: string;
-		photo: string;
-		personality: string[];
-		favorite_foods: string[];
-		phobias: string[];
-		hobbies: string[];
-		city: string;
-	};
+	dog: Dog;
 }
 
 function CardProfile({ dog }: CardProfileProps) {

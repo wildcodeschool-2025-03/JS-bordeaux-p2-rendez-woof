@@ -2,10 +2,17 @@ import { useEffect, useState } from "react";
 import CardProfile from "../../components/CardProfile/CardProfile";
 import "./Profiles.css";
 import Select from "react-select";
+import type { MultiValue } from "react-select";
+import type { Dog } from "../../types/Dog";
+
+interface Option {
+	value: string;
+	label: string;
+}
 
 function Profiles() {
 	const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
-	const [dog, setDog] = useState([]);
+	const [dog, setDog] = useState<Dog[]>([]);
 
 	const [isLocalityClicked, setIsLocalityClicked] = useState(false);
 	const [isSearchBarLocality, setIsSearchBarLocality] = useState(false);
@@ -13,8 +20,8 @@ function Profiles() {
 
 	const [isRacesClicked, setIsRacesClicked] = useState(false);
 	const [isMultiSelectRace, setIsMultiSelectRace] = useState(false);
-	const [selectedRaces, setSelectedRaces] = useState([]);
-	const [racesOptions, setRacesOptions] = useState([]);
+	const [selectedRaces, setSelectedRaces] = useState<Option[]>([]);
+	const [racesOptions, setRacesOptions] = useState<Option[]>([]);
 
 	const [isAgesClicked, setIsAgesClicked] = useState(false);
 	const [isSliderAge, setIsSliderAge] = useState(false);
@@ -22,15 +29,15 @@ function Profiles() {
 
 	const [isHobbiesClicked, setIsHobbiesClicked] = useState(false);
 	const [isMultiSelectHobbies, setIsMultiSelectHobbies] = useState(false);
-	const [selectedHobbies, setSelectedHobbies] = useState([]);
-	const [hobbiesOptions, setHobbiesOptions] = useState([]);
+	const [selectedHobbies, setSelectedHobbies] = useState<Option[]>([]);
+	const [hobbiesOptions, setHobbiesOptions] = useState<Option[]>([]);
 
 	useEffect(() => {
 		fetch(
 			"https://my-json-server.typicode.com/wildcodeschool-2025-03/JS-bordeaux-p2-api-rendez-woof/dogs",
 		)
 			.then((response) => response.json())
-			.then((data) => {
+			.then((data: Dog[]) => {
 				setDog(data);
 
 				const uniqueRaces = Array.from(
@@ -73,8 +80,8 @@ function Profiles() {
 		}
 	}, [isMobile]);
 
-	const handleChangeRace = (selectedRace) => {
-		setSelectedRaces(selectedRace);
+	const handleChangeRace = (selectedRace: MultiValue<Option>) => {
+		setSelectedRaces([...selectedRace]);
 	};
 
 	const filteredDogs = dog.filter((dog) => {
@@ -247,7 +254,9 @@ function Profiles() {
 							options={hobbiesOptions}
 							isMulti
 							value={selectedHobbies}
-							onChange={(selected) => setSelectedHobbies(selected)}
+							onChange={(selected: MultiValue<Option>) =>
+								setSelectedHobbies([...selected])
+							}
 							placeholder="Sélectionne un ou plusieurs hobbies"
 						/>
 					)}
