@@ -4,7 +4,7 @@ section {
 	align-items: center;
 	padding: 20px 0px 50px 0px;
 
-	.filters {
+	.filtersSection {
 		display: flex;
 		width: 100%;
 		justify-content: space-evenly;
@@ -21,7 +21,7 @@ section {
 			width: 100%;
 			min-height: 40px;
 
-			.filterButton {
+			.button {
 				background: none;
 				border: none;
 			}
@@ -80,7 +80,7 @@ section {
 
 @media (min-width: 1024px) {
 	section {
-		.filters {
+		.filtersSection {
 			display: flex;
 			width: 100%;
 			justify-content: space-between;

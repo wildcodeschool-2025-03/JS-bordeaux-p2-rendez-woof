@@ -118,7 +118,7 @@ function Profiles() {
 			<section className="profiles">
 				<h2>Profils</h2>
 
-				<div className="filters">
+				<div className="filtersSection">
 					<img
 						id="filterLogo"
 						src="src/assets/images/filter_image.png"
@@ -128,7 +128,7 @@ function Profiles() {
 					/>
 					<div className="filtersButtons">
 						<button
-							className={`filterButton ${isLocalityClicked ? "green" : ""} ${isLocalityClicked ? "bold" : ""}`}
+							className={`button ${isLocalityClicked ? "green" : ""} ${isLocalityClicked ? "bold" : ""}`}
 							type="button"
 							onClick={() => {
 								if (isMobile) {
@@ -146,7 +146,7 @@ function Profiles() {
 							Localité
 						</button>
 						<button
-							className={`filterButton ${isRacesClicked ? "green" : ""} ${isRacesClicked ? "bold" : ""}`}
+							className={`button ${isRacesClicked ? "green" : ""} ${isRacesClicked ? "bold" : ""}`}
 							type="button"
 							onClick={() => {
 								if (isMobile) {
@@ -164,7 +164,7 @@ function Profiles() {
 							Races
 						</button>
 						<button
-							className={`filterButton ${isAgesClicked ? "green" : ""} ${isAgesClicked ? "bold" : ""}`}
+							className={`button ${isAgesClicked ? "green" : ""} ${isAgesClicked ? "bold" : ""}`}
 							type="button"
 							onClick={() => {
 								if (isMobile) {
@@ -182,7 +182,7 @@ function Profiles() {
 							Ages
 						</button>
 						<button
-							className={`filterButton ${isHobbiesClicked ? "green" : ""} ${isHobbiesClicked ? "bold" : ""}`}
+							className={`button ${isHobbiesClicked ? "green" : ""} ${isHobbiesClicked ? "bold" : ""}`}
 							type="button"
 							onClick={() => {
 								if (isMobile) {
