@@ -128,7 +128,7 @@ function Profiles() {
 					/>
 					<div className="filtersButtons">
 						<button
-							className={`button ${isLocalityClicked ? "green" : ""} ${isLocalityClicked ? "bold" : ""}`}
+							className={`button ${isLocalityClicked ? "red" : ""} ${isLocalityClicked ? "bold" : ""}`}
 							type="button"
 							onClick={() => {
 								if (isMobile) {
@@ -146,7 +146,7 @@ function Profiles() {
 							Localité
 						</button>
 						<button
-							className={`button ${isRacesClicked ? "green" : ""} ${isRacesClicked ? "bold" : ""}`}
+							className={`button ${isRacesClicked ? "red" : ""} ${isRacesClicked ? "bold" : ""}`}
 							type="button"
 							onClick={() => {
 								if (isMobile) {
@@ -164,7 +164,7 @@ function Profiles() {
 							Races
 						</button>
 						<button
-							className={`button ${isAgesClicked ? "green" : ""} ${isAgesClicked ? "bold" : ""}`}
+							className={`button ${isAgesClicked ? "red" : ""} ${isAgesClicked ? "bold" : ""}`}
 							type="button"
 							onClick={() => {
 								if (isMobile) {
@@ -182,7 +182,7 @@ function Profiles() {
 							Ages
 						</button>
 						<button
-							className={`button ${isHobbiesClicked ? "green" : ""} ${isHobbiesClicked ? "bold" : ""}`}
+							className={`button ${isHobbiesClicked ? "red" : ""} ${isHobbiesClicked ? "bold" : ""}`}
 							type="button"
 							onClick={() => {
 								if (isMobile) {
