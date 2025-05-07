@@ -3,6 +3,7 @@ import CardProfile from "../../components/CardProfile/CardProfile";
 import "./Profiles.css";
 import Select from "react-select";
 import type { MultiValue } from "react-select";
+import { useScreen } from "../../contexts/ScreenContext";
 import type { Dog } from "../../types/Dog";
 
 interface Option {
@@ -11,7 +12,8 @@ interface Option {
 }
 
 function Profiles() {
-	const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+	const { isMobile } = useScreen();
+
 	const [dog, setDog] = useState<Dog[]>([]);
 
 	const [isLocalityClicked, setIsLocalityClicked] = useState(false);
@@ -38,7 +40,7 @@ function Profiles() {
 		)
 			.then((response) => response.json())
 			.then((data: Dog[]) => {
-				setDog(data);
+				setDog(data.filter((dog) => dog.name.toLowerCase() !== "tidus"));
 
 				const uniqueRaces = Array.from(
 					new Set(data.map((dog) => dog.race.toLowerCase())),
@@ -63,12 +65,6 @@ function Profiles() {
 
 				setHobbiesOptions(formattedHobbies);
 			});
-	}, []);
-
-	useEffect(() => {
-		const handleResize = () => setIsMobile(window.innerWidth < 1024);
-		window.addEventListener("resize", handleResize);
-		return () => window.removeEventListener("resize", handleResize);
 	}, []);
 
 	useEffect(() => {

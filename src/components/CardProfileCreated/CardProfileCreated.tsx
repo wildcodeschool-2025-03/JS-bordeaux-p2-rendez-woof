@@ -1,4 +1,4 @@
-import "./CardProfile.css";
+import "./CardProfileCreated.css";
 import { useState } from "react";
 import ReactCardFlip from "react-card-flip";
 import type { Dog } from "../../types/Dog";
@@ -7,13 +7,13 @@ interface CardProfileProps {
 	dog: Dog;
 }
 
-function CardProfile({ dog }: CardProfileProps) {
+function CardProfileCreated({ dog }: CardProfileProps) {
 	const [isFlipped, setIsFlipped] = useState(false);
 
 	return (
 		<ReactCardFlip flipDirection="horizontal" isFlipped={isFlipped}>
 			<article
-				className="cardProfile"
+				className="cardMyProfile"
 				onClick={() => setIsFlipped(!isFlipped)}
 				onKeyDown={() => setIsFlipped(!isFlipped)}
 			>
@@ -33,30 +33,10 @@ function CardProfile({ dog }: CardProfileProps) {
 						alt="icone flip-card"
 					/>
 				</div>
-				<img className="photosDogs" src={dog.photo} alt={dog.name} />
-				<div className="likeDislikeButtons">
-					<img
-						src="src/assets/images/dislike_button.png"
-						width="60"
-						height="auto"
-						alt="bouton dislike"
-					/>
-					<img
-						src="src/assets/images/separation_like_dislike.png"
-						alt="separation entre le bouton like et le bouton dislike"
-						width="1"
-						height="60"
-					/>
-					<img
-						src="src/assets/images/like_button.png"
-						alt="bouton like"
-						width="60"
-						height="auto"
-					/>
-				</div>
+				<img className="photoMyProfile" src={dog.photo} alt={dog.name} />
 			</article>
 			<article
-				className="cardProfileback"
+				className="cardMyProfileback"
 				onClick={() => setIsFlipped(!isFlipped)}
 				onKeyDown={() => setIsFlipped(!isFlipped)}
 			>
@@ -94,29 +74,9 @@ function CardProfile({ dog }: CardProfileProps) {
 						<p>{dog.personality.join(", ")}</p>
 					</div>
 				</div>
-				<div className="likeDislikeButtons">
-					<img
-						src="src/assets/images/dislike_button.png"
-						width="60"
-						height="auto"
-						alt="bouton dislike"
-					/>
-					<img
-						src="src/assets/images/separation_like_dislike.png"
-						alt="separation entre le bouton like et le bouton dislike"
-						width="1"
-						height="60"
-					/>
-					<img
-						src="src/assets/images/like_button.png"
-						alt="bouton like"
-						width="60"
-						height="auto"
-					/>
-				</div>
 			</article>
 		</ReactCardFlip>
 	);
 }
 
-export default CardProfile;
+export default CardProfileCreated;
