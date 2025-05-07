@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import CardProfile from "../CardProfile/CardProfile";
 import "../Recommandations/Recommandation.css";
 import type { DogType } from "../LikeContext/LikesContext";
-function Recommandations() {
+function Matchs() {
 	const [matchingDogs, setMatchingDogs] = useState<DogType[]>([]);
 
 	useEffect(() => {
@@ -37,7 +37,7 @@ function Recommandations() {
 						traitsTidus.includes(trait),
 					);
 
-					return commonTraits.length >= 6;
+					return commonTraits.length >= 9;
 				});
 
 				setMatchingDogs(result);
@@ -61,4 +61,4 @@ function Recommandations() {
 	);
 }
 
-export default Recommandations;
+export default Matchs;
