@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Likes.css";
-import CardProfileTrash from "./CardProfileTrash";
+import LikedDogsList from "./LikedDogsList";
 
 const sampleProfil = [
 	{
@@ -67,10 +67,10 @@ const sampleProfil = [
 
 function Likes() {
 	const [activeTab, setActiveTab] = useState("likes");
-	const [profiles, setProfiles] = useState(sampleProfil);
+	const [likedDogs, setLikedDogs] = useState(sampleProfil);
 
 	const handleDelete = (id: number) => {
-		setProfiles(profiles.filter((dog) => dog.id !== id));
+		setLikedDogs((prev) => prev.filter((dog) => dog.id !== id));
 	};
 
 	return (
@@ -103,13 +103,7 @@ function Likes() {
 
 			{activeTab === "likes" && (
 				<div className="content">
-					{profiles.map((dog) => (
-						<CardProfileTrash
-							key={dog.id}
-							dog={dog}
-							onDelete={() => handleDelete(dog.id)}
-						/>
-					))}
+					<LikedDogsList likedDogs={likedDogs} onDelete={handleDelete} />
 				</div>
 			)}
 
@@ -122,7 +116,7 @@ function Likes() {
 			{activeTab === "profil" && (
 				<div className="content">
 					<h1>Voici votre profil</h1>
-					{/* Ajoute ici le contenu pour "Mon profil" */}
+					{}
 				</div>
 			)}
 		</>

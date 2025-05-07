@@ -1,10 +1,8 @@
-import { useState } from "react";
-import CardProfile from "./CardProfileTrash";
+import CardProfileTrash from "./CardProfileTrash";
 
-type Dog = {
+interface Dog {
 	id: number;
 	name: string;
-	breed: string;
 	age: number;
 	size: string;
 	photo: string;
@@ -13,24 +11,25 @@ type Dog = {
 	phobias: string[];
 	hobbies: string[];
 	city: string;
-};
+}
 
-const initialDogs: Dog[] = [];
+interface LikedDogsListProps {
+	likedDogs: Dog[];
+	onDelete: (id: number) => void;
+}
 
-function LikedDogsList() {
-	const [likedDogs, setLikedDogs] = useState(initialDogs);
-
-	const handleDelete = (id: number) => {
-		setLikedDogs((prev) => prev.filter((dog) => dog.id !== id));
-	};
-
+const LikedDogsList = ({ likedDogs, onDelete }: LikedDogsListProps) => {
 	return (
 		<div className="cardList">
-			{likedDogs.map((dog) => (
-				<CardProfile key={dog.id} dog={dog} onDelete={handleDelete} />
-			))}
+			{likedDogs.length > 0 ? (
+				likedDogs.map((dog) => (
+					<CardProfileTrash key={dog.id} dog={dog} onDelete={onDelete} />
+				))
+			) : (
+				<p>Vous n'avez encore aimé aucun toutou 😢</p>
+			)}
 		</div>
 	);
-}
+};
 
 export default LikedDogsList;
