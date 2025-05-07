@@ -1,10 +1,16 @@
 import ReactDOM from "react-dom/client";
+import "./reset.css";
 import "./index.css";
-import { RouterProvider } from "react-router-dom";
+import { RouterProvider } from "react-router";
+import { LikesProvider } from "./components/LikeContext/LikesContext";
 import router from "./components/Router";
 
 const rootElement = document.getElementById("root");
 
-if (rootElement != null) {
-	ReactDOM.createRoot(rootElement).render(<RouterProvider router={router} />);
+if (rootElement) {
+	ReactDOM.createRoot(rootElement).render(
+		<LikesProvider>
+			<RouterProvider router={router} />
+		</LikesProvider>,
+	);
 }

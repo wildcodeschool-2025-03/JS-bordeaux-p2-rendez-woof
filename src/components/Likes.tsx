@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Likes.css";
-import CardProfile from "./CardProfile";
+import CardProfileTrash from "./CardProfileTrash";
 
 const sampleProfil = [
 	{
@@ -104,7 +104,7 @@ function Likes() {
 			{activeTab === "likes" && (
 				<div className="content">
 					{profiles.map((dog) => (
-						<CardProfile
+						<CardProfileTrash
 							key={dog.id}
 							dog={dog}
 							onDelete={() => handleDelete(dog.id)}

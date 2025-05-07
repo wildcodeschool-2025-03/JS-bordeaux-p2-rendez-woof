@@ -1,6 +1,11 @@
+import Likes from "../../components/Likes";
 import "./MyProfile.css";
 
 function MyProfile() {
-	return <p>Mon profil</p>;
+	return (
+		<>
+			<Likes />
+		</>
+	);
 }
 export default MyProfile;

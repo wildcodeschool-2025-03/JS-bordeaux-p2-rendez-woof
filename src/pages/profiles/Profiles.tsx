@@ -1,6 +1,26 @@
+import CardProfile from "../../components/CardProfile";
+import "../../components/CardProfile.css";
+
 import "./Profiles.css";
 
 function Profiles() {
-	return <p>Découvrir des profils</p>;
+	return (
+		<main>
+			<section className="profiles">
+				<h2>Profils</h2>
+
+				<CardProfile />
+			</section>
+			<section className="recommendations">
+				<h2>
+					Recommandations :<br />
+					tu risques de trouver l'âme chien ici !
+				</h2>
+				<div className="profilesRecommended">
+					<CardProfile />
+				</div>
+			</section>
+		</main>
+	);
 }
 export default Profiles;

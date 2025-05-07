@@ -3,15 +3,20 @@ import "./CardProfile.css";
 import { useEffect } from "react";
 import ReactCardFlip from "react-card-flip";
 import { toast } from "sonner";
-import { type DogType, useLikes } from "./LikeContext/LikesContext";
+import { type DogType, useLikes } from ".context/LikeContext/LikesContext";
 
 interface CardProfile {
 	dog: DogType;
 }
 
-function CardProfile() {
+function CardProfileTrash({ onDelete }: { onDelete: (id: number) => void }) {
 	const [isFlipped, setIsFlipped] = useState(false);
 	const { setLikedDogs } = useLikes();
+	const [isRemoving, setIsRemoving] = useState(false);
+
+	const flipCard = () => {
+		if (!isRemoving) setIsFlipped((prev) => !prev);
+	};
 
 	const [dog, setDog] = useState<DogType | null>(null);
 
@@ -44,7 +49,15 @@ function CardProfile() {
 		}, 300);
 	};
 
-	if (!dog) return;
+	const handleDelete = (e: React.MouseEvent) => {
+		e.stopPropagation();
+		setIsRemoving(true);
+		setTimeout(() => {
+			onDelete(dog.id);
+		}, 400);
+	};
+
+	if (!dog) return null;
 
 	return (
 		<>
@@ -141,35 +154,21 @@ function CardProfile() {
 						</div>
 					</div>
 					<div className="likeDislikeButtons">
-						<button
-							type="button"
-							onClick={(e) => {
-								e.stopPropagation();
-								handleDislike();
-								toast.success(`Tu as dislike ${dog.name} !`);
-							}}
-							aria-label="Refuser ce chien"
-						>
-							<img
-								src="src/assets/images/dislike_button.png"
-								alt="bouton dislike"
-							/>
-						</button>
 						<img
-							src="src/assets/images/separation_like_dislike.png"
-							alt="séparation entre le bouton like et le bouton dislike"
-						/>
-						<button
-							type="button"
-							onClick={(e) => {
-								e.stopPropagation();
-								handleLike(dog);
-								toast.success(`Tu as liké ${dog.name} !`);
+							src="https://cdn-icons-png.flaticon.com/512/860/860829.png"
+							alt="Supprimer"
+							width="40"
+							onClick={handleDelete}
+							onKeyDown={(e) => {
+								if (e.key === "Enter" || e.key === " ") {
+									e.stopPropagation();
+									handleDelete({
+										stopPropagation: () => {},
+									} as React.MouseEvent);
+								}
 							}}
-							aria-label="Aimer ce chien"
-						>
-							<img src="src/assets/images/like_button.png" alt="bouton like" />
-						</button>
+							style={{ cursor: "pointer" }}
+						/>
 					</div>
 				</article>
 			</ReactCardFlip>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CardProfile from "./CardProfile";
+import CardProfile from "./CardProfileTrash";
 
 type Dog = {
 	id: number;
@@ -15,9 +15,7 @@ type Dog = {
 	city: string;
 };
 
-const initialDogs: Dog[] = [
-	/* tableau de chiens likés */
-];
+const initialDogs: Dog[] = [];
 
 function LikedDogsList() {
 	const [likedDogs, setLikedDogs] = useState(initialDogs);
