@@ -1,5 +1,5 @@
-import CardProfile from "../../component/CardProfile/CardProfile";
-import "../../component/CardProfile/CardProfile.css";
+import Recommandations from "../../components/Recommandations/Recommandations";
+import "../../components/CardProfile/CardProfile.css";
 
 import "./Profiles.css";
 
@@ -8,16 +8,15 @@ function Profiles() {
 		<main>
 			<section className="profiles">
 				<h2>Profils</h2>
-
-				<CardProfile />
+				<div className="Myprofile">x</div>
 			</section>
 			<section className="recommendations">
 				<h2>
-					Recommandations :<br />
-					tu risques de trouver l'âme chien ici !
+					<br />
+					Recommandations : tu risques de trouver l'âme chien ici !
 				</h2>
 				<div className="profilesRecommended">
-					<CardProfile />
+					<Recommandations />
 				</div>
 			</section>
 		</main>

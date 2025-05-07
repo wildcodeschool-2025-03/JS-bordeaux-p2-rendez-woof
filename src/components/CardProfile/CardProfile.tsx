@@ -1,46 +1,39 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import "./CardProfile.css";
-import { useEffect } from "react";
+import { motion } from "framer-motion";
 import ReactCardFlip from "react-card-flip";
 import { toast } from "sonner";
 import { type DogType, useLikes } from "../LikeContext/LikesContext";
 
 interface CardProfile {
 	dog: DogType;
+	onRemove: () => void;
 }
 
-function CardProfile() {
+function RecommendationCardProfile({ dog, onRemove }: CardProfile) {
 	const [isFlipped, setIsFlipped] = useState(false);
 	const { setLikedDogs } = useLikes();
+	const [animationState, setAnimationState] = useState<
+		"visible" | "like" | "dislike"
+	>("visible");
 
-	const [dog, setDog] = useState<DogType | null>(null);
-
-	const handleNextProfile = useCallback(async () => {
-		const dogId = Math.floor(Math.random() * 20) + 1;
-
-		const res = await fetch(
-			`https://my-json-server.typicode.com/wildcodeschool-2025-03/JS-bordeaux-p2-api-rendez-woof/dogs/${dogId}`,
-		);
-		const randomDog = await res.json();
-		setDog(randomDog);
-	}, []);
-
-	useEffect(() => {
-		handleNextProfile();
-	}, [handleNextProfile]);
-
+	const animationVariation = {
+		visible: { x: 0, y: 0, rotate: 0, opacity: 1 },
+		like: { x: 200, y: 0, rotate: 0, opacity: 0 },
+		dislike: { x: -200, y: 0, rotate: 0, opacity: 0 },
+	};
 	const handleLike = (dog: DogType) => {
 		setLikedDogs((prev) => [...prev, dog]);
 		setIsFlipped(false);
 		setTimeout(() => {
-			handleNextProfile();
+			setAnimationState("like");
 		}, 300);
 	};
 
 	const handleDislike = () => {
 		setIsFlipped(false);
 		setTimeout(() => {
-			handleNextProfile();
+			setAnimationState("dislike");
 		}, 300);
 	};
 
@@ -49,8 +42,16 @@ function CardProfile() {
 	return (
 		<>
 			<ReactCardFlip flipDirection="horizontal" isFlipped={isFlipped}>
-				<article
+				<motion.article
 					className="cardProfile"
+					variants={animationVariation}
+					initial="visible"
+					animate={animationState}
+					onAnimationComplete={() => {
+						if (animationState !== "visible") {
+							onRemove();
+						}
+					}}
 					onClick={() => setIsFlipped(!isFlipped)}
 					onKeyUp={() => setIsFlipped(!isFlipped)}
 				>
@@ -65,7 +66,7 @@ function CardProfile() {
 						</div>
 						<img
 							src="src/assets/images/icone_flipCard.png"
-							className="icone_flipCard-img"
+							className="iconFlipCard"
 							alt="logo-flip"
 						/>
 					</div>
@@ -76,7 +77,6 @@ function CardProfile() {
 							onClick={(e) => {
 								e.stopPropagation();
 								handleDislike();
-								toast.success(`Tu as dislike ${dog.name} !`);
 							}}
 							aria-label="Refuser ce chien"
 						>
@@ -101,7 +101,7 @@ function CardProfile() {
 							<img src="src/assets/images/like_button.png" alt="logo coeur" />
 						</button>
 					</div>
-				</article>
+				</motion.article>
 				<article
 					className="cardProfileback"
 					onClick={() => setIsFlipped(!isFlipped)}
@@ -118,7 +118,7 @@ function CardProfile() {
 						</div>
 						<img
 							src="src/assets/images/icone_flipCard.png"
-							className="icone_flipCard-img"
+							className="iconFlipCard"
 							alt="icone flip card"
 						/>
 					</div>
@@ -146,7 +146,6 @@ function CardProfile() {
 							onClick={(e) => {
 								e.stopPropagation();
 								handleDislike();
-								toast.success(`Tu as dislike ${dog.name} !`);
 							}}
 							aria-label="Refuser ce chien"
 						>
@@ -177,4 +176,4 @@ function CardProfile() {
 	);
 }
 
-export default CardProfile;
+export default RecommendationCardProfile;
