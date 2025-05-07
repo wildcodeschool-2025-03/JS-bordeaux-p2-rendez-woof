@@ -37,7 +37,7 @@ function Recommandations() {
 						traitsTidus.includes(trait),
 					);
 
-					return commonTraits.length >= 2;
+					return commonTraits.length >= 6;
 				});
 
 				setMatchingDogs(result);
