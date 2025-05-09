@@ -4,6 +4,7 @@
 	padding: 20px;
 	margin-bottom: 20px;
 	margin-top: 20px;
+	justify-content: flex-start; /* Par défaut, on aligne à gauche */
 }
 
 .tab-button {
@@ -37,16 +38,25 @@
 	margin: 0 auto;
 	max-width: 1200px;
 }
+
 .cardProfile {
 	display: flex;
 	gap: 20px;
 	padding: 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+	.cardList {
+		grid-template-columns: 1fr;
+	}
+
 	.content {
 		flex-direction: column;
 		align-items: center;
 		gap: 20px;
+	}
+
+	.button-group {
+		justify-content: center;
 	}
 }

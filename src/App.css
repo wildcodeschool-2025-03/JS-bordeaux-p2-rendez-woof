@@ -33,7 +33,11 @@ p {
 	font-weight: bold;
 }
 
-body {
+body,
+html {
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	text-align: center;
@@ -41,6 +45,66 @@ body {
 	color: var(--text-color);
 }
 
+/* Footer qui est poussé vers le bas */
+footer {
+	margin-top: auto; /* Assure que le footer est en bas */
+	background-color: var(--background-color-header-footer);
+	padding: 20px;
+	text-align: center;
+	width: 100%;
+	position: relative; /* Assure que le footer se positionne bien au bas */
+	bottom: 0;
+}
+
+/* Conteneur des cartes */
+.card-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	justify-content: space-between;
+	margin-top: 40px;
+	flex-grow: 1;
+	padding: 0 10px; /* Padding pour éviter d'avoir les cartes collées au bord */
+}
+
+.card {
+	flex: 1 1 calc(33.33% - 20px); /* Chaque carte occupe un tiers de la largeur du conteneur */
+	box-sizing: border-box;
+	background-color: #fff;
+	border: 1px solid var(--border-color);
+	border-radius: 8px;
+	padding: 20px;
+	text-align: center;
+}
+
+/* Media Query pour les écrans moins larges que 1024px */
+@media (max-width: 1024px) {
+	.card-container {
+		flex-direction: column; /* Les cartes passent en colonne */
+		align-items: center; /* Les cartes sont centrées */
+	}
+
+	.card {
+		flex: 1 1 100%; /* Les cartes prennent 100% de la largeur */
+		margin-bottom: 20px; /* Un petit espacement entre les cartes */
+	}
+
+	h1 {
+		font-size: 2.8rem;
+		display: flex;
+		align-items: center;
+	}
+
+	h2 {
+		font-size: 2rem;
+	}
+
+	p {
+		font-size: 1.1rem;
+	}
+}
+
+/* Styles par défaut pour les écrans de plus de 1024px */
 @media (min-width: 1024px) {
 	h1 {
 		font-size: 2.8rem;
@@ -51,6 +115,7 @@ body {
 	h2 {
 		font-size: 2rem;
 	}
+
 	p {
 		font-size: 1.1rem;
 	}

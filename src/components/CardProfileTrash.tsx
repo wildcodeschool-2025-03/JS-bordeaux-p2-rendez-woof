@@ -96,19 +96,19 @@ function CardProfile() {
 				</div>
 				<div className="descriptionsDog">
 					<div className="descriptionDog">
-						<p className="iconeDescriptionDog">:knife_fork_plate:</p>
+						<p className="iconeDescriptionDog">🍽️</p>
 						<p>{dog.favorite_foods.join(", ")}</p>
 					</div>
 					<div className="descriptionDog">
-						<p className="iconeDescriptionDog">:scream:</p>
+						<p className="iconeDescriptionDog">😱</p>
 						<p>{dog.phobias.join(", ")}</p>
 					</div>
 					<div className="descriptionDog">
-						<p className="iconeDescriptionDog">:dart:</p>
+						<p className="iconeDescriptionDog">🎯</p>
 						<p>{dog.hobbies.join(", ")}</p>
 					</div>
 					<div className="descriptionDog">
-						<p className="iconeDescriptionDog">:dog:</p>
+						<p className="iconeDescriptionDog">🐶</p>
 						<p>{dog.personality.join(", ")}</p>
 					</div>
 				</div>

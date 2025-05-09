@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import "./reset.css";
+import "./components/reset.css";
 import "./index.css";
 import { RouterProvider } from "react-router";
 import { LikesProvider } from "./components/LikeContext/LikesContext";

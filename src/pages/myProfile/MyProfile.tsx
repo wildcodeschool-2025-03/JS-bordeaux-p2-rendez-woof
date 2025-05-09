@@ -1,4 +1,4 @@
-import Likes from "../../components/Likes";
+import Likes from "../../components/Tabs/Likes";
 import "./MyProfile.css";
 
 function MyProfile() {
