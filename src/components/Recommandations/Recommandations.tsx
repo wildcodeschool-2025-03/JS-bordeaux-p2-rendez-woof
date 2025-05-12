@@ -12,15 +12,32 @@ function Recommandations() {
 			.then((response) => response.json())
 			.then((data) => {
 				const dogs: DogType[] = data;
-				const tidus = dogs.find((dog) => dog.name === "Tidus");
 
-				if (!tidus) return;
+				const tidusProfile = {
+					name: "Tidus",
+					personality: [
+						"Garde du corps de peluches",
+						"Explorateur de bouches d'égout",
+						"Chiwawakado",
+					],
+					hobbies: [
+						"Regarder Netflix sans bouger",
+						"Faire du yoga avec son humain",
+						"Faire la sieste en équilibre sur le dossier du canapé",
+					],
+					phobias: ["Orages", "Robots aspirateurs", "Clowns en pantoufles"],
+					favorite_foods: [
+						"Pizza aux sardines",
+						"Friandises au saumon",
+						"Croquettes bio",
+					],
+				};
 
 				const traitsTidus = [
-					...tidus.personality,
-					...tidus.hobbies,
-					...tidus.phobias,
-					...tidus.favorite_foods,
+					...tidusProfile.personality,
+					...tidusProfile.hobbies,
+					...tidusProfile.phobias,
+					...tidusProfile.favorite_foods,
 				];
 
 				const result = dogs.filter((dog) => {
@@ -37,7 +54,7 @@ function Recommandations() {
 						traitsTidus.includes(trait),
 					);
 
-					return commonTraits.length >= 6;
+					return commonTraits.length >= 5;
 				});
 
 				setMatchingDogs(result);
