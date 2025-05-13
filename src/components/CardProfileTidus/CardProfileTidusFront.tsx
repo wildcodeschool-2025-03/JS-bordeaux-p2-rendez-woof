@@ -1,20 +1,20 @@
-import "./CardProfileCreated.css";
+import "./CardProfileTidus.css";
 import type { Dog } from "../../types/Dog";
 
 interface CardProfileProps {
-	dog: Dog;
+	tidus: Dog;
 }
 
-function CardProfileCreatedFront({ dog }: CardProfileProps) {
+function CardProfileTidusFront({ tidus }: CardProfileProps) {
 	return (
 		<article className="cardMyProfile">
 			<div className="cardTop">
 				<div id="infoDog">
 					<p className="bold">
-						{dog.name}, {dog.age} an{dog.age > 1 ? "s" : ""}
+						{tidus.name}, {tidus.age} an{tidus.age > 1 ? "s" : ""}
 					</p>
 					<p className="raceCityDog">
-						{dog.race}, {dog.city}
+						{tidus.race}, {tidus.city}
 					</p>
 				</div>
 				<img
@@ -24,9 +24,9 @@ function CardProfileCreatedFront({ dog }: CardProfileProps) {
 					alt="icone flip-card"
 				/>
 			</div>
-			<img className="photoMyProfile" src={dog.photo} alt={dog.name} />
+			<img className="photoMyProfile" src={tidus.photo} alt={tidus.name} />
 		</article>
 	);
 }
 
-export default CardProfileCreatedFront;
+export default CardProfileTidusFront;

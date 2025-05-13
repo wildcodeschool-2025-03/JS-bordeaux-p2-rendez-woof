@@ -1,13 +1,13 @@
-import "./CardProfileCreated.css";
+import "./CardProfileTidus.css";
 import { useState } from "react";
 import ReactCardFlip from "react-card-flip";
 import type { Dog } from "../../types/Dog";
 
 interface CardProfileProps {
-	dog: Dog;
+	tidus: Dog;
 }
 
-function CardProfileCreated({ dog }: CardProfileProps) {
+function CardProfileTidus({ tidus }: CardProfileProps) {
 	const [isFlipped, setIsFlipped] = useState(false);
 
 	return (
@@ -20,10 +20,10 @@ function CardProfileCreated({ dog }: CardProfileProps) {
 				<div className="cardTop">
 					<div id="infoDog">
 						<p className="bold">
-							{dog.name}, {dog.age} an{dog.age > 1 ? "s" : ""}
+							{tidus.name}, {tidus.age} an{tidus.age > 1 ? "s" : ""}
 						</p>
 						<p className="raceCityDog">
-							{dog.race}, {dog.city}
+							{tidus.race}, {tidus.city}
 						</p>
 					</div>
 					<img
@@ -33,7 +33,7 @@ function CardProfileCreated({ dog }: CardProfileProps) {
 						alt="icone flip-card"
 					/>
 				</div>
-				<img className="photoMyProfile" src={dog.photo} alt={dog.name} />
+				<img className="photoMyProfile" src={tidus.photo} alt={tidus.name} />
 			</article>
 			<article
 				className="cardMyProfileback"
@@ -43,10 +43,10 @@ function CardProfileCreated({ dog }: CardProfileProps) {
 				<div className="cardTop">
 					<div id="infoDog">
 						<p className="bold">
-							{dog.name}, {dog.age} an{dog.age > 1 ? "s" : ""}
+							{tidus.name}, {tidus.age} an{tidus.age > 1 ? "s" : ""}
 						</p>
 						<p className="raceCityDog">
-							{dog.race}, {dog.city}
+							{tidus.race}, {tidus.city}
 						</p>
 					</div>
 					<img
@@ -59,19 +59,19 @@ function CardProfileCreated({ dog }: CardProfileProps) {
 				<div className="descriptionsDog">
 					<div className="descriptionDog">
 						<p className="iconeDescriptionDog">🍽️</p>
-						<p>{dog.favorite_foods.join(", ")}</p>
+						<p>{tidus.favorite_foods.join(", ")}</p>
 					</div>
 					<div className="descriptionDog">
 						<p className="iconeDescriptionDog">😱</p>
-						<p>{dog.phobias.join(", ")}</p>
+						<p>{tidus.phobias.join(", ")}</p>
 					</div>
 					<div className="descriptionDog">
 						<p className="iconeDescriptionDog">🎯</p>
-						<p>{dog.hobbies.join(", ")}</p>
+						<p>{tidus.hobbies.join(", ")}</p>
 					</div>
 					<div className="descriptionDog">
 						<p className="iconeDescriptionDog">🐶</p>
-						<p>{dog.personality.join(", ")}</p>
+						<p>{tidus.personality.join(", ")}</p>
 					</div>
 				</div>
 			</article>
@@ -79,4 +79,4 @@ function CardProfileCreated({ dog }: CardProfileProps) {
 	);
 }
 
-export default CardProfileCreated;
+export default CardProfileTidus;
