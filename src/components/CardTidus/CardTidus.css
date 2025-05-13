@@ -5,7 +5,7 @@
 	justify-content: space-between;
 	gap: 20px;
 	width: 280px;
-	height: auto;
+	height: 360px;
 	background-color: var(--background-color-header-footer);
 	padding: 10px 0px;
 	border-radius: 7px;
@@ -42,7 +42,7 @@
 	justify-content: flex-start;
 	gap: 45px;
 	width: 280px;
-	height: auto;
+	height: 360px;
 	background-color: var(--background-color-header-footer);
 	padding: 10px 0px;
 	border-radius: 7px;
