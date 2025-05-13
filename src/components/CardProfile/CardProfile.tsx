@@ -10,7 +10,7 @@ interface CardProfile {
 	onRemove: () => void;
 }
 
-function RecommendationCardProfile({ dog, onRemove }: CardProfile) {
+function CardProfile({ dog, onRemove }: CardProfile) {
 	const [isFlipped, setIsFlipped] = useState(false);
 	const { setLikedDogs } = useLikes();
 	const [animationState, setAnimationState] = useState<
@@ -176,4 +176,4 @@ function RecommendationCardProfile({ dog, onRemove }: CardProfile) {
 	);
 }
 
-export default RecommendationCardProfile;
+export default CardProfile;
