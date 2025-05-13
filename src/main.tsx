@@ -3,7 +3,7 @@ import "./reset.css";
 import "./index.css";
 import { RouterProvider } from "react-router";
 import router from "./Router";
-import { LikesProvider } from "./component/LikeContext/LikesContext";
+import { LikesProvider } from "./components/LikeContext/LikesContext";
 
 const rootElement = document.getElementById("root");
 
