@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import "./CardProfile.css";
+import "./CardProfileTrash.css";
 import ReactCardFlip from "react-card-flip";
 import { toast } from "sonner";
 import type { DogType } from "./LikeContext/LikesContext";

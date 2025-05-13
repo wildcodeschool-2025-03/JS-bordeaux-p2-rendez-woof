@@ -2,8 +2,8 @@ import ReactDOM from "react-dom/client";
 import "./components/reset.css";
 import "./index.css";
 import { RouterProvider } from "react-router";
+import router from "./Router";
 import { LikesProvider } from "./components/LikeContext/LikesContext";
-import router from "./components/Router";
 
 const rootElement = document.getElementById("root");
 
