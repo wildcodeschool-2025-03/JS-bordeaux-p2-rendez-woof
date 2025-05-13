@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import CardProfile from "../CardProfile/CardProfile";
 import "../Recommandations/Recommandation.css";
+import tidusProfile from "../../../data/tidus.json";
 import type { DogType } from "../LikeContext/LikesContext";
+
 function Recommandations() {
 	const [matchingDogs, setMatchingDogs] = useState<DogType[]>([]);
 
@@ -12,26 +14,6 @@ function Recommandations() {
 			.then((response) => response.json())
 			.then((data) => {
 				const dogs: DogType[] = data;
-
-				const tidusProfile = {
-					name: "Tidus",
-					personality: [
-						"Garde du corps de peluches",
-						"Explorateur de bouches d'égout",
-						"Chiwawakado",
-					],
-					hobbies: [
-						"Regarder Netflix sans bouger",
-						"Faire du yoga avec son humain",
-						"Faire la sieste en équilibre sur le dossier du canapé",
-					],
-					phobias: ["Orages", "Robots aspirateurs", "Clowns en pantoufles"],
-					favorite_foods: [
-						"Pizza aux sardines",
-						"Friandises au saumon",
-						"Croquettes bio",
-					],
-				};
 
 				const traitsTidus = [
 					...tidusProfile.personality,
