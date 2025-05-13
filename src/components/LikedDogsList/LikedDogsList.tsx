@@ -4,7 +4,7 @@ import { useLikes } from "../LikeContext/LikesContext";
 import "./LikedDogsList.css";
 
 const LikedDogsList = () => {
-	const { likedDogs, unlikeDogs } = useLikes();
+	const { likedDogs, setLikedDogs } = useLikes();
 
 	return (
 		<div className="cardList">
@@ -15,7 +15,7 @@ const LikedDogsList = () => {
 					<CardProfileTrash
 						key={dog.id}
 						dog={dog}
-						onDelete={() => unlikeDogs(dog.id)}
+						onDelete={() => setLikedDogs(dog.id)}
 					/>
 				))
 			)}
