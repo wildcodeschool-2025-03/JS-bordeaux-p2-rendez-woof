@@ -1,8 +1,8 @@
 import { useState } from "react";
-import "./Likes.css";
+import "./Tabs.css";
 import LikedDogsList from "../LikedDogsList/LikedDogsList";
 
-function Likes() {
+function Tabs() {
 	const [activeTab, setActiveTab] = useState("likes");
 
 	return (
@@ -54,4 +54,4 @@ function Likes() {
 	);
 }
 
-export default Likes;
+export default Tabs;

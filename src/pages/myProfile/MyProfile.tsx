@@ -1,10 +1,10 @@
-import Likes from "../../components/Tabs/Likes";
+import Tabs from "../../components/Tabs/Tabs";
 import "./MyProfile.css";
 
 function MyProfile() {
 	return (
 		<>
-			<Likes />
+			<Tabs />
 		</>
 	);
 }

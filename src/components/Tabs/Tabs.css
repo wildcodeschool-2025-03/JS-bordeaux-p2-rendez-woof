@@ -4,7 +4,7 @@
 	padding: 20px;
 	margin-bottom: 20px;
 	margin-top: 20px;
-	justify-content: flex-start; /* Par défaut, on aligne à gauche */
+	justify-content: flex-start;
 }
 
 .tab-button {

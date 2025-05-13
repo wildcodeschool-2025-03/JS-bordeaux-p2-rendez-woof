@@ -1,4 +1,4 @@
-import CardProfileTrash from "../CardProfileTrash";
+import CardProfile from "../CardProfile/CardProfile";
 import { useLikes } from "../LikeContext/LikesContext";
 
 import "./LikedDogsList.css";
@@ -12,10 +12,15 @@ const LikedDogsList = () => {
 				<p className="noLikesMessage">🐾 Aucun like pour le moment 🐾</p>
 			) : (
 				likedDogs.map((dog) => (
-					<CardProfileTrash
+					<CardProfile
 						key={dog.id}
 						dog={dog}
-						onDelete={() => setLikedDogs(dog.id)}
+						onRemove={() =>
+							setLikedDogs((prevDogs) =>
+								prevDogs.filter((d) => d.id !== dog.id),
+							)
+						}
+						context="myprofile"
 					/>
 				))
 			)}

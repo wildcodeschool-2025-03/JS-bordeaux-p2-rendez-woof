@@ -67,7 +67,7 @@ footer {
 
 .card {
 	flex: 1 1 calc(33.33% - 20px);
-	box-sizing: border-box;
+
 	background-color: #fff;
 	border: 1px solid var(--border-color);
 	border-radius: 8px;
