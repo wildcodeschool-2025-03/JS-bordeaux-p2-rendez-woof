@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CardProfile from "../CardProfile/CardProfile";
-import "../Recommandations/Recommandation.css";
+import "../Recommandations/Recommandations.css";
 import tidusProfile from "../../../data/tidus.json";
 import type { DogType } from "../LikeContext/LikesContext";
 
