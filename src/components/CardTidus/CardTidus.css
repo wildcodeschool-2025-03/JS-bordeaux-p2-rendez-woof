@@ -1,11 +1,11 @@
-.cardMyProfile {
+.cardTidus {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
 	gap: 20px;
 	width: 280px;
-	height: 350px;
+	height: auto;
 	background-color: var(--background-color-header-footer);
 	padding: 10px 0px;
 	border-radius: 7px;
@@ -35,14 +35,14 @@
 	}
 }
 
-.cardMyProfileback {
+.cardTidusBack {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: space-between;
-	gap: 20px;
+	justify-content: flex-start;
+	gap: 45px;
 	width: 280px;
-	height: 350px;
+	height: auto;
 	background-color: var(--background-color-header-footer);
 	padding: 10px 0px;
 	border-radius: 7px;
