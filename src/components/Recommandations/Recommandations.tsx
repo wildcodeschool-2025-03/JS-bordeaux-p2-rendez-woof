@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import CardProfile from "../CardProfile/CardProfile";
 import "../Recommandations/Recommandations.css";
-import tidusProfile from "../../../data/tidus.json";
+import tidusProfile from "../../data/tidus.json";
 import type { DogType } from "../LikeContext/LikesContext";
 
 function Recommandations() {
@@ -23,8 +23,6 @@ function Recommandations() {
 				];
 
 				const result = dogs.filter((dog) => {
-					if (dog.name === "Tidus") return false;
-
 					const dogTraits = [
 						...dog.personality,
 						...dog.hobbies,
