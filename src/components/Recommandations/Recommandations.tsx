@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import CardProfile from "../CardProfile/CardProfile";
-import "../Recommandations/Recommandation.css";
+import "../Recommandations/Recommandations.css";
+import tidusProfile from "../../data/tidus.json";
 import type { DogType } from "../LikeContext/LikesContext";
+
 function Recommandations() {
 	const [matchingDogs, setMatchingDogs] = useState<DogType[]>([]);
 
@@ -12,20 +14,15 @@ function Recommandations() {
 			.then((response) => response.json())
 			.then((data) => {
 				const dogs: DogType[] = data;
-				const tidus = dogs.find((dog) => dog.name === "Tidus");
-
-				if (!tidus) return;
 
 				const traitsTidus = [
-					...tidus.personality,
-					...tidus.hobbies,
-					...tidus.phobias,
-					...tidus.favorite_foods,
+					...tidusProfile.personality,
+					...tidusProfile.hobbies,
+					...tidusProfile.phobias,
+					...tidusProfile.favorite_foods,
 				];
 
 				const result = dogs.filter((dog) => {
-					if (dog.name === "Tidus") return false;
-
 					const dogTraits = [
 						...dog.personality,
 						...dog.hobbies,
@@ -37,7 +34,7 @@ function Recommandations() {
 						traitsTidus.includes(trait),
 					);
 
-					return commonTraits.length >= 6;
+					return commonTraits.length >= 5;
 				});
 
 				setMatchingDogs(result);

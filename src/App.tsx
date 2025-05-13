@@ -9,11 +9,10 @@ function App() {
 	return (
 		<>
 			<Header />
-
+			<MyProfile />
 			<Outlet />
 			<Footer />
 			<Toaster />
-			<MyProfile />
 		</>
 	);
 }
