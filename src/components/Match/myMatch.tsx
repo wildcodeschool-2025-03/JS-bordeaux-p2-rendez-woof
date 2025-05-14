@@ -5,12 +5,12 @@ import useDogs from "../../API/API";
 import tidusProfile from "../../data/tidus.json";
 import type { DogType } from "../LikeContext/LikesContext";
 
-function Recommandations() {
+function myMatch() {
 	const [matchingDogs, setMatchingDogs] = useState<DogType[]>([]);
-	const fetchDogs = useDogs();
+	const dogs = useDogs();
 
 	useEffect(() => {
-		if (fetchDogs.length === 0) return;
+		if (dogs.length === 0) return;
 
 		const traitsTidus = [
 			...tidusProfile.personality,
@@ -19,7 +19,7 @@ function Recommandations() {
 			...tidusProfile.favorite_foods,
 		];
 
-		const result = fetchDogs.filter((dog) => {
+		const result = dogs.filter((dog) => {
 			const dogTraits = [
 				...dog.personality,
 				...dog.hobbies,
@@ -31,11 +31,11 @@ function Recommandations() {
 				traitsTidus.includes(trait),
 			);
 
-			return commonTraits.length >= 5;
+			return commonTraits.length >= 8;
 		});
 
 		setMatchingDogs(result);
-	}, [fetchDogs]);
+	}, [dogs]);
 
 	const removeDogFromList = (id: number) => {
 		setMatchingDogs((prevDogs) => prevDogs.filter((dog) => dog.id !== id));
@@ -48,11 +48,10 @@ function Recommandations() {
 					key={dog.id}
 					dog={dog}
 					onRemove={() => removeDogFromList(dog.id)}
-					context="profiles"
 				/>
 			))}
 		</div>
 	);
 }
 
-export default Recommandations;
+export default myMatch;
