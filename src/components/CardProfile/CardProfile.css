@@ -9,55 +9,73 @@
 	background-color: var(--background-color-header-footer);
 	padding: 10px 0px;
 	border-radius: 7px;
+}
 
-	.cardTop {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		width: 100%;
-		padding: 0px 10px;
+.cardTop {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding: 0px 10px;
+}
 
-		#infoDog {
-			display: flex;
-			flex-direction: column;
-			align-items: flex-start;
-			color: var(--main-color);
+.infoDog {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	color: var(--main-color);
+}
 
-			.raceCityDog {
-				font-size: 15px;
-			}
-		}
-	}
+.raceCityDog {
+	font-size: 15px;
+	--text-color: black;
+	color: var(--main-color);
+}
 
-	.photosDogs {
-		width: 100%;
-		height: 50%;
-	}
+.descriptionsDog {
+	padding: 0px 10px;
+}
 
-	.descriptionsDog {
-		padding: 0px 10px;
+.descriptionDog {
+	display: flex;
+	padding-bottom: 7px;
+}
 
-		.descriptionDog {
-			display: flex;
-			padding-bottom: 7px;
+.cardProfile,
+.cardProfileback .descriptionDog .descriptionDog p {
+	text-align: left;
+	line-height: 1, 5;
+	font-size: 12px;
+}
 
-			p {
-				text-align: left;
-				line-height: 1.5;
-				font-size: 13px;
-			}
+.iconeDescriptionDog {
+	font-size: 20px;
+	padding-right: 5px;
+}
 
-			.iconeDescriptionDog {
-				font-size: 20px;
-				padding-right: 5px;
-			}
-		}
-	}
+.photosDogs {
+	width: 100%;
+	height: 50%;
+}
 
-	.likeDislikeButtons {
-		display: flex;
-		justify-content: space-evenly;
-		width: 100%;
-		padding-bottom: 20px;
-	}
+.likeDislikeButtons {
+	display: flex;
+	justify-content: space-evenly;
+	width: 100%;
+	padding-bottom: 20px;
+}
+
+button {
+	border: none;
+	background: none;
+	padding: 0;
+	margin: 0;
+
+	outline: none;
+	cursor: pointer;
+}
+
+.iconFlipCard {
+	width: 30px;
+	height: 30px;
 }

@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
-import CardProfile from "../../components/CardProfile/CardProfile";
+import "../../components/CardProfile/CardProfile.css";
 import "./Profiles.css";
+import { useEffect, useState } from "react";
 import Select from "react-select";
 import type { MultiValue } from "react-select";
-import type { Dog } from "../../types/Dog";
+import CardProfile from "../../components/CardProfile/CardProfile";
+import type { DogType } from "../../components/LikeContext/LikesContext";
+import Recommandations from "../../components/Recommandations/Recommandations";
 
 interface Option {
 	value: string;
@@ -12,7 +14,7 @@ interface Option {
 
 function Profiles() {
 	const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
-	const [dog, setDog] = useState<Dog[]>([]);
+	const [dog, setDog] = useState<DogType[]>([]);
 
 	const [isLocalityClicked, setIsLocalityClicked] = useState(false);
 	const [isSearchBarLocality, setIsSearchBarLocality] = useState(false);
@@ -37,7 +39,7 @@ function Profiles() {
 			"https://my-json-server.typicode.com/wildcodeschool-2025-03/JS-bordeaux-p2-api-rendez-woof/dogs",
 		)
 			.then((response) => response.json())
-			.then((data: Dog[]) => {
+			.then((data: DogType[]) => {
 				setDog(data);
 
 				const uniqueRaces = Array.from(
@@ -266,7 +268,7 @@ function Profiles() {
 					{filteredDogs.length > 0 ? (
 						filteredDogs.slice(0, isMobile ? 1 : 3).map((dog, index) => (
 							<div key={dog.id} className={`card-${index + 1}`}>
-								<CardProfile dog={dog} />
+								<CardProfile dog={dog} context="profiles" />
 							</div>
 						))
 					) : (
@@ -277,10 +279,13 @@ function Profiles() {
 
 			<section className="recommendations">
 				<h2>
-					Recommandations :<br />
-					tu risques de trouver l'âme chien ici !
+					<br />
+					Recommandations : tu risques de trouver l'âme chien ici !
 				</h2>
-				<p>Aucune recommandation pour l’instant.</p>
+
+				<div className="profilesRecommended">
+					<Recommandations />
+				</div>
 			</section>
 		</main>
 	);
