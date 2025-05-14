@@ -48,6 +48,7 @@ function Recommandations() {
 					key={dog.id}
 					dog={dog}
 					onRemove={() => removeDogFromList(dog.id)}
+					context="profiles"
 				/>
 			))}
 		</div>

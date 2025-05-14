@@ -16,6 +16,7 @@ export interface DogType {
 
 interface LikesContextType {
 	likedDogs: DogType[];
+
 	setLikedDogs: React.Dispatch<React.SetStateAction<DogType[]>>;
 }
 
