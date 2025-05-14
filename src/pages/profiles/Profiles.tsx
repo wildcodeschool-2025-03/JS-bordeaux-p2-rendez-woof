@@ -279,8 +279,8 @@ function Profiles() {
 
 			<section className="recommendations">
 				<h2>
-					<br />
-					Recommandations : tu risques de trouver l'âme chien ici !
+					Recommandations :<br />
+					tu risques de trouver l'âme chien ici !
 				</h2>
 
 				<div className="profilesRecommended">

@@ -3,10 +3,12 @@ import "./Home.css";
 function Home() {
 	return (
 		<div className="home-container">
-			<h1>
+			<h1 className="homeTitle">
 				Trouve le perfect match …<br />
 			</h1>
-			<h1>parce que même les truffes ont droit à l’amour !</h1>
+			<h1 className="homeTitle">
+				parce que même les truffes ont droit à l’amour !
+			</h1>
 			<p className="subtitle">
 				Un site de rencontre exclusivement réservé aux chiens
 			</p>
