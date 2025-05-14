@@ -35,6 +35,10 @@ function Profiles() {
 	const [selectedHobbies, setSelectedHobbies] = useState<Option[]>([]);
 	const [hobbiesOptions, setHobbiesOptions] = useState<Option[]>([]);
 
+	const removeDogFromList = (id: number) => {
+		setDog((prev) => prev.filter((d) => d.id !== id));
+	};
+
 	useEffect(() => {
 		fetch(
 			"https://my-json-server.typicode.com/wildcodeschool-2025-03/JS-bordeaux-p2-api-rendez-woof/dogs",
@@ -263,7 +267,11 @@ function Profiles() {
 					{filteredDogs.length > 0 ? (
 						filteredDogs.slice(0, isMobile ? 1 : 3).map((dog, index) => (
 							<div key={dog.id} className={`card-${index + 1}`}>
-								<CardProfile dog={dog} context="profiles" />
+								<CardProfile
+									dog={dog}
+									context="profiles"
+									onRemove={() => removeDogFromList(dog.id)}
+								/>
 							</div>
 						))
 					) : (

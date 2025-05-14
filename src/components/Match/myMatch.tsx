@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import CardProfile from "../CardProfile/CardProfile";
 import "../Recommandations/Recommandations.css";
 import useDogs from "../../API/API";
+import { useScreen } from "../../contexts/ScreenContext";
 import tidusProfile from "../../data/tidus.json";
 import type { DogType } from "../LikeContext/LikesContext";
 
-function myMatch() {
+function MyMatch() {
 	const [matchingDogs, setMatchingDogs] = useState<DogType[]>([]);
 	const dogs = useDogs();
+	const { isMobile } = useScreen();
 
 	useEffect(() => {
 		if (dogs.length === 0) return;
@@ -31,7 +33,7 @@ function myMatch() {
 				traitsTidus.includes(trait),
 			);
 
-			return commonTraits.length >= 8;
+			return commonTraits.length >= 6;
 		});
 
 		setMatchingDogs(result);
@@ -43,15 +45,22 @@ function myMatch() {
 
 	return (
 		<div className="cards-grid">
-			{matchingDogs.slice(1, 4).map((dog) => (
-				<CardProfile
-					key={dog.id}
-					dog={dog}
-					onRemove={() => removeDogFromList(dog.id)}
-				/>
-			))}
+			{matchingDogs.length !== 0 ? (
+				matchingDogs
+					.slice(0, isMobile ? 1 : 3)
+					.map((dog) => (
+						<CardProfile
+							key={dog.id}
+							dog={dog}
+							onRemove={() => removeDogFromList(dog.id)}
+							context="profiles"
+						/>
+					))
+			) : (
+				<h1>😢 Vous n'avez pas encore de match 😢</h1>
+			)}
 		</div>
 	);
 }
 
-export default myMatch;
+export default MyMatch;

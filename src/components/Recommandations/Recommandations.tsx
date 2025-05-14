@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import CardProfile from "../CardProfile/CardProfile";
 import "../Recommandations/Recommandations.css";
 import useDogs from "../../API/API";
+import { useScreen } from "../../contexts/ScreenContext";
 import tidusProfile from "../../data/tidus.json";
 import type { DogType } from "../LikeContext/LikesContext";
 
 function Recommandations() {
 	const [matchingDogs, setMatchingDogs] = useState<DogType[]>([]);
 	const fetchDogs = useDogs();
+	const { isMobile } = useScreen();
 
 	useEffect(() => {
 		if (fetchDogs.length === 0) return;
@@ -31,7 +33,7 @@ function Recommandations() {
 				traitsTidus.includes(trait),
 			);
 
-			return commonTraits.length >= 5;
+			return commonTraits.length >= 4;
 		});
 
 		setMatchingDogs(result);
@@ -43,7 +45,7 @@ function Recommandations() {
 
 	return (
 		<div className="cards-grid">
-			{matchingDogs.slice(1, 4).map((dog) => (
+			{matchingDogs.slice(0, isMobile ? 1 : 3).map((dog) => (
 				<CardProfile
 					key={dog.id}
 					dog={dog}

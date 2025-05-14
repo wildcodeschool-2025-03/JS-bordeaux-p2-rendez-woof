@@ -12,11 +12,14 @@
 	color: white;
 	font-weight: bold;
 	padding: 8px 14px;
-	border: none;
 	border-radius: 8px;
 	cursor: pointer;
 	font-family: sans-serif;
 	transition: all 0.2s ease;
+}
+
+.tab-button.active {
+	border: 2px solid var(--border-color);
 }
 
 .tab-button:hover {
@@ -28,6 +31,17 @@
 .content {
 	display: flex;
 	justify-content: space-evenly;
+	padding-bottom: 40px;
+}
+
+.profileContainer {
+	width: 100%;
+}
+
+.tidusProfile {
+	display: flex;
+	justify-content: space-evenly;
+	width: 100%;
 }
 
 .cardList {
@@ -37,6 +51,7 @@
 	padding: 20px;
 	margin: 0 auto;
 	max-width: 1200px;
+	justify-items: center;
 }
 
 .cardProfile {
@@ -45,7 +60,7 @@
 	padding: 20px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
 	.cardList {
 		grid-template-columns: 1fr;
 	}
@@ -58,5 +73,14 @@
 
 	.button-group {
 		justify-content: center;
+	}
+
+	.tab-button {
+		font-size: 12px;
+	}
+
+	.tidusProfile {
+		display: flex;
+		align-items: center;
 	}
 }

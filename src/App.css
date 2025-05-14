@@ -41,6 +41,10 @@ body {
 	color: var(--text-color);
 }
 
+.red {
+	color: var(--border-color);
+}
+
 @media (min-width: 1024px) {
 	h1 {
 		font-size: 3rem;

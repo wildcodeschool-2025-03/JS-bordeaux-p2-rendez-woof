@@ -30,10 +30,6 @@ section .filtersButtons .button {
 	border: none;
 }
 
-section .filtersButtons .red {
-	color: var(--border-color);
-}
-
 section .filtersUse {
 	padding-bottom: 3.125rem;
 }

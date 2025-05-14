@@ -4,9 +4,10 @@ import CardTidus from "../../components/CardTidus/CardTidus";
 import { useScreen } from "../../contexts/ScreenContext";
 import tidusProfile from "../../data/tidus.json";
 import LikedDogsList from "../LikedDogsList/LikedDogsList";
+import MyMatch from "../Match/MyMatch";
 
 function Tabs() {
-	const [activeTab, setActiveTab] = useState("likes");
+	const [activeTab, setActiveTab] = useState("profil");
 	const { isMobile } = useScreen();
 	const tidus = tidusProfile;
 
@@ -46,7 +47,7 @@ function Tabs() {
 
 			{activeTab === "matchs" && (
 				<div className="content">
-					<h1>😢 Vous n'avez pas encore de match 😢</h1>
+					<MyMatch />
 				</div>
 			)}
 
@@ -54,7 +55,9 @@ function Tabs() {
 				<div className="content">
 					<div className="profileContainer">
 						{isMobile ? (
-							<CardTidus tidus={tidus} context={isMobile} />
+							<div className="tidusProfile">
+								<CardTidus tidus={tidus} context={isMobile} />
+							</div>
 						) : (
 							<div className="tidusProfile">
 								<CardTidus tidus={tidus} context="front" />
