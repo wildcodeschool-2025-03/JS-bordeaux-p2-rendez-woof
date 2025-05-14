@@ -34,7 +34,7 @@
 
 .intro {
 	flex: 1;
-	margin-top: -125px;
+	margin-top: 5px;
 }
 
 .title {
@@ -52,6 +52,11 @@
 	color: #333;
 	text-align: left;
 	margin-left: 20px;
+	font-family: "Chelsea Market", cursive;
+}
+
+.aside {
+	padding-top: 300px;
 }
 
 .dog-profile {
@@ -66,23 +71,23 @@
 }
 
 .woof {
-	color: #d5b037;
+	color: #b1a680;
 	font-weight: bold;
 	margin-bottom: 1rem;
 }
 
 .dog-card {
-	background-color: #dce6b8;
+	width: 100%;
+	aspect-ratio: 1 / 1; /* carré automatique */
+	object-fit: cover;
 	border-radius: 20px;
-	overflow: hidden;
-	display: inline-block;
-	max-width: 100%;
 }
 
 .dog-image {
 	width: 100%;
-	height: 250px;
-	display: block;
+
+	object-fit: cover;
+	border-radius: 20px;
 }
 
 .dog-name {
@@ -109,8 +114,17 @@
 	align-items: flex-start;
 	gap: 2rem;
 	margin-bottom: 3rem;
-	width: 100%;
-	flex-wrap: nowrap;
+	width: auto;
+	margin-left: auto;
+	margin-right: auto;
+	flex-wrap: wrap;
+}
+
+.icon img,
+.icon-image {
+	width: 100px;
+	height: 100px;
+	object-fit: contain;
 }
 
 .feature {
@@ -123,13 +137,13 @@
 
 .icon {
 	font-size: 2rem;
-	background-color: #e3e8cd;
 	padding: 1rem;
 	border-radius: 50%;
 	margin-bottom: 0.5rem;
 }
 
 .badges {
+	font-family: "Chelsea Market", cursive;
 	background-color: var(--background-color-body);
 	padding: 2rem;
 	border-radius: 10px;
@@ -160,4 +174,33 @@
 .badge-icon {
 	font-size: 1.5rem;
 	margin-right: 0.5rem;
+}
+
+@media screen and (max-width: 1024px) {
+	.top-bar {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	.intro {
+		margin-top: 1rem;
+	}
+
+	.dog-profile {
+		margin-top: 2rem;
+	}
+
+	.features {
+		display: flex;
+		justify-content: center; /* centrer les éléments */
+
+		gap: 2rem;
+		flex-wrap: nowrap; /* empêche le passage en colonne */
+		width: 100%;
+	}
+
+	.feature {
+		flex: 0 1 auto; /* garder la largeur automatique des features */
+	}
 }
