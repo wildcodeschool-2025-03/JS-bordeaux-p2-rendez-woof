@@ -5,13 +5,11 @@ section {
 	align-items: center;
 	padding: 20px 0px 50px 0px;
 }
-
 .profilesRecommended {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
 	width: 100%;
-
 	.card-2 {
 		display: none;
 	}
@@ -19,7 +17,6 @@ section {
 		display: none;
 	}
 }
-
 @media (min-width: 1024px) {
 	.profilesRecommended {
 		.card-2 {

@@ -1,6 +1,11 @@
+import Tabs from "../../components/Tabs/Tabs";
 import "./MyProfile.css";
 
 function MyProfile() {
-	return <p>Mon profil</p>;
+	return (
+		<>
+			<Tabs />
+		</>
+	);
 }
 export default MyProfile;

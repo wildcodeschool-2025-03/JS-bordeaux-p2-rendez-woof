@@ -1,8 +1,6 @@
 import Recommandations from "../../components/Recommandations/Recommandations";
 import "../../components/CardProfile/CardProfile.css";
-
 import "./Profiles.css";
-
 function Profiles() {
 	return (
 		<main>
