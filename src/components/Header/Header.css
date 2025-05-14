@@ -1,43 +1,54 @@
+/* Charger la police ChelaOne-Regular depuis le dossier assets */
+@font-face {
+	font-family: "ChelaOne-Regular";
+	src: url("./src/assets/font/ChelaOne-Regular.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
 header {
 	display: flex;
 	flex-direction: column;
 	background-color: var(--background-color-header-footer);
 	gap: 5px;
 	padding: 15px 20px;
+}
 
-	section {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		gap: 20px;
-		padding: 0;
-	}
+header section {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 20px;
+	padding: 0;
+}
 
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-evenly;
-		font-size: 0.8rem;
-	}
+header nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	font-size: 0.8rem;
+}
+
+/* Applique la police ChelaOne-Regular uniquement au h1 dans le header */
+header h1 {
+	font-family: "ChelaOne-Regular", sans-serif;
 }
 
 @media (min-width: 1024px) {
 	header {
-		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
+	}
 
-		.logoSite {
-			width: 80px;
-			height: 80px;
-		}
+	header .logoSite {
+		width: 80px;
+		height: 80px;
+	}
 
-		nav {
-			display: flex;
-			justify-content: center;
-			gap: 20px;
-			font-size: 1rem;
-		}
+	header nav {
+		justify-content: center;
+		gap: 20px;
+		font-size: 1rem;
 	}
 }
