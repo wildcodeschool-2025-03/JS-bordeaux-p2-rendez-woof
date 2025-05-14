@@ -1,11 +1,11 @@
 import "./CardTidus.css";
 import { useState } from "react";
 import ReactCardFlip from "react-card-flip";
-import type { Dog } from "../../types/Dog";
 import { useScreen } from "../../contexts/ScreenContext";
+import type { DogType } from "../LikeContext/LikesContext";
 
 interface CardProfileProps {
-	tidus: Dog;
+	tidus: DogType;
 	context: "front" | "back";
 }
 
