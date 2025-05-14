@@ -4,7 +4,7 @@ import { Link } from "react-router";
 function Header() {
 	return (
 		<header>
-			<section>
+			<div className="title">
 				<img
 					className="logoSite"
 					src="src/assets/images/logo_site.png"
@@ -13,7 +13,7 @@ function Header() {
 					height="50"
 				/>
 				<h1>RENDEZ-WOOF</h1>
-			</section>
+			</div>
 			<nav>
 				<Link to="/">Accueil</Link>
 				<Link to="/myProfile">Mon profil</Link>

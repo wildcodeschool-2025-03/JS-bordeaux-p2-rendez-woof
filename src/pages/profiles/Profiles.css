@@ -5,25 +5,137 @@ section {
 	align-items: center;
 	padding: 20px 0px 50px 0px;
 }
-.profilesRecommended {
+
+section .filtersSection {
+	display: flex;
+	width: 100%;
+	justify-content: space-evenly;
+}
+
+section #filterLogo {
+	margin-top: 5px;
+	margin-left: 20px;
+}
+
+section .filtersButtons {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-evenly;
+	width: 100%;
+	min-height: 40px;
+}
+
+section .filtersButtons .button {
+	background: none;
+	border: none;
+}
+
+section .filtersButtons .red {
+	color: var(--border-color);
+}
+
+section .filtersUse {
+	padding-bottom: 3.125rem;
+}
+
+section .filtersUse #searchBar {
+	max-height: 30px;
+}
+
+section .filtersUse .multiSelect {
+	width: 200px;
+	font-size: 12px;
+}
+
+section .filtersUse .ageRange {
+	display: flex;
+	flex-direction: column;
+	width: 200px;
+}
+
+section .filtersUse .ticks-labels {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+	font-size: 10px;
+}
+
+section .filtersUse .ticks-labels span {
+	flex: 1;
+	text-align: center;
+	padding-top: 5px;
+}
+
+.profilesRecommended,
+.profilesFiltered {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
 	width: 100%;
-	.card-2 {
-		display: none;
-	}
-	.card-3 {
-		display: none;
-	}
 }
+.profilesFiltered .card-2 {
+	display: none;
+}
+.profilesFiltered .card-3 {
+	display: none;
+}
+
 @media (min-width: 1024px) {
-	.profilesRecommended {
-		.card-2 {
-			display: block;
-		}
-		.card-3 {
-			display: block;
-		}
+	section .filtersSection {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+	}
+
+	section .filtersSection #filterLogo {
+		margin-top: 5px;
+		margin-left: 20px;
+	}
+
+	section .filtersSection .filtersButtons {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		min-height: 40px;
+		width: 100%;
+		padding: 0rem 7.5rem 0rem 4.375rem;
+	}
+
+	section .filtersUse {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		padding: 0rem 3rem 3.125rem 3rem;
+	}
+
+	section .filtersUse #searchBar {
+		max-height: 30px;
+	}
+
+	section .filtersUse .ageRange {
+		display: flex;
+		flex-direction: column;
+		width: 200px;
+	}
+
+	section .filtersUse .ticks-labels {
+		gap: 15px;
+		font-size: 11px;
+		line-height: 100%;
+		padding-top: 5px;
+	}
+
+	section .filtersUse .ticks-labels span {
+		flex: 1;
+		text-align: center;
+	}
+
+	.profilesRecommended,
+	.profilesFiltered .card-2 {
+		display: block;
+	}
+	.profilesRecommended,
+	.profilesFiltered .card-3 {
+		display: block;
 	}
 }
