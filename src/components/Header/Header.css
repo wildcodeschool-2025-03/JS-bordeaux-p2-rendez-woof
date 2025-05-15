@@ -1,3 +1,11 @@
+/* Charger la police ChelaOne-Regular depuis le dossier assets */
+@font-face {
+	font-family: "ChelaOne-Regular";
+	src: url("./src/assets/font/ChelaOne-Regular.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
 header {
 	display: flex;
 	flex-direction: column;
@@ -23,7 +31,6 @@ header nav {
 
 @media (min-width: 1024px) {
 	header {
-		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 	}

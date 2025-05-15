@@ -17,10 +17,11 @@ const router = createBrowserRouter([
 				element: <MyProfile />,
 			},
 			{
-				path: "/Profiles",
+				path: "/profiles",
 				element: <Profiles />,
 			},
 		],
 	},
 ]);
+
 export default router;
