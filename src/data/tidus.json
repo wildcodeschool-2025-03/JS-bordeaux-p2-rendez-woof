@@ -1,5 +1,11 @@
 { 
+	"id": 0,
     "name": "Tidus",
+	"race": "Border Collie",
+	"age": 5,
+    "size": "Moyen",
+	"city": "Bordeaux",
+	"photo": "https://i.ibb.co/SwWsVQQf/tidus-plage.png",
 	"personality": [
 	    "Garde du corps de peluches",
 		"Explorateur de bouches d'égout",

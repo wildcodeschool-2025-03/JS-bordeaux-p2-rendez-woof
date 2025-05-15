@@ -6,13 +6,13 @@ import { useScreen } from "../../contexts/ScreenContext";
 import tidusProfile from "../../data/tidus.json";
 import type { DogType } from "../LikeContext/LikesContext";
 
-function Recommandations() {
+function MyMatch() {
 	const [matchingDogs, setMatchingDogs] = useState<DogType[]>([]);
-	const fetchDogs = useDogs();
+	const dogs = useDogs();
 	const { isMobile } = useScreen();
 
 	useEffect(() => {
-		if (fetchDogs.length === 0) return;
+		if (dogs.length === 0) return;
 
 		const traitsTidus = [
 			...tidusProfile.personality,
@@ -21,7 +21,7 @@ function Recommandations() {
 			...tidusProfile.favorite_foods,
 		];
 
-		const result = fetchDogs.filter((dog) => {
+		const result = dogs.filter((dog) => {
 			const dogTraits = [
 				...dog.personality,
 				...dog.hobbies,
@@ -33,11 +33,11 @@ function Recommandations() {
 				traitsTidus.includes(trait),
 			);
 
-			return commonTraits.length >= 4;
+			return commonTraits.length >= 6;
 		});
 
 		setMatchingDogs(result);
-	}, [fetchDogs]);
+	}, [dogs]);
 
 	const removeDogFromList = (id: number) => {
 		setMatchingDogs((prevDogs) => prevDogs.filter((dog) => dog.id !== id));
@@ -45,16 +45,22 @@ function Recommandations() {
 
 	return (
 		<div className="cards-grid">
-			{matchingDogs.slice(0, isMobile ? 1 : 3).map((dog) => (
-				<CardProfile
-					key={dog.id}
-					dog={dog}
-					onRemove={() => removeDogFromList(dog.id)}
-					context="profiles"
-				/>
-			))}
+			{matchingDogs.length !== 0 ? (
+				matchingDogs
+					.slice(0, isMobile ? 1 : 3)
+					.map((dog) => (
+						<CardProfile
+							key={dog.id}
+							dog={dog}
+							onRemove={() => removeDogFromList(dog.id)}
+							context="profiles"
+						/>
+					))
+			) : (
+				<h1>😢 Vous n'avez pas encore de match 😢</h1>
+			)}
 		</div>
 	);
 }
 
-export default Recommandations;
+export default MyMatch;

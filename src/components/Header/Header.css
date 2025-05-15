@@ -14,11 +14,11 @@ header {
 	padding: 15px 20px;
 }
 
-header section {
+header .title {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	gap: 20px;
+	gap: 10px;
 	padding: 0;
 }
 
@@ -29,16 +29,10 @@ header nav {
 	font-size: 0.8rem;
 }
 
-/* Applique la police ChelaOne-Regular uniquement au h1 dans le header */
-header h1 {
-	font-family: "ChelaOne-Regular", sans-serif;
-}
-
 @media (min-width: 1024px) {
 	header {
 		flex-direction: row;
 		justify-content: space-between;
-		align-items: center;
 	}
 
 	header .logoSite {
@@ -47,8 +41,9 @@ header h1 {
 	}
 
 	header nav {
+		display: flex;
 		justify-content: center;
-		gap: 20px;
+		gap: 40px;
 		font-size: 1rem;
 	}
 }
