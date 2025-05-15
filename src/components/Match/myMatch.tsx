@@ -53,7 +53,7 @@ function MyMatch() {
 							key={dog.id}
 							dog={dog}
 							onRemove={() => removeDogFromList(dog.id)}
-							context="profiles"
+							context="myprofile"
 						/>
 					))
 			) : (

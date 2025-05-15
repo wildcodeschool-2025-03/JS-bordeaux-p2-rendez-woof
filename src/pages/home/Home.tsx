@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"; // Importation de Link
+import { Link } from "react-router-dom";
 
 import "./Home.css";
 import Slider from "../../components/Slider/Slider";
@@ -16,7 +16,7 @@ function Home() {
 						Un site de rencontre exclusivement réservé aux chiens
 					</p>
 
-					<Link to="/decouvrir-profiles">
+					<Link to="/profiles">
 						<button type="button" className="discover-button">
 							Découvrir les profils
 						</button>

@@ -54,10 +54,6 @@
 	font-family: "Chelsea Market", cursive;
 }
 
-.dog-profile {
-	transform: translateX(-20px) translateY(20px);
-}
-
 .woof {
 	color: #b1a680;
 	font-weight: bold;
@@ -123,6 +119,10 @@
 	width: 100%;
 }
 
+.dog-card {
+	padding-right: 20px;
+}
+
 .badge-title {
 	font-weight: bold;
 	font-size: 0.9rem;
@@ -149,11 +149,15 @@
 	margin-right: 0.5rem;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
 	.top-bar {
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
+	}
+
+	.dog-card {
+		padding-right: 0px;
 	}
 
 	.intro {
@@ -166,14 +170,14 @@
 
 	.features {
 		display: flex;
-		flex-direction: row; /* Maintenir la disposition horizontale */
-		justify-content: space-between; /* Pour un alignement plus fluide */
-		gap: 1rem; /* Réduire l'espace entre les items */
-		flex-wrap: nowrap; /* Autoriser l'enroulement des éléments sur plusieurs lignes si nécessaire */
+		flex-direction: row;
+		justify-content: space-between;
+		gap: 1rem;
+		flex-wrap: nowrap;
 		width: 100%;
 	}
 
 	.feature {
-		flex: 1 1 150px; /* Permet aux éléments de s'ajuster de manière réactive */
+		flex: 1 1 150px;
 	}
 }

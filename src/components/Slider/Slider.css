@@ -5,12 +5,14 @@
 }
 
 .slideshow {
+	margin-bottom: 50px;
+
 	width: 280px;
-	height: 450px;
-	background-size: cover; /* ou "contain" selon ton besoin */
+	height: 400px;
+	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	border-radius: 8px; /* exemple : coins arrondis */
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* ombre légère */
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 	transition: background-image 0.5s ease-in-out;
 }
