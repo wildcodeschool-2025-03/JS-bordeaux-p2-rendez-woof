@@ -4,7 +4,7 @@ import CardTidus from "../../components/CardTidus/CardTidus";
 import { useScreen } from "../../contexts/ScreenContext";
 import tidusProfile from "../../data/tidus.json";
 import LikedDogsList from "../LikedDogsList/LikedDogsList";
-import MyMatch from "../Match/MyMatch";
+import MyMatch from "../Match/myMatch";
 
 function Tabs() {
 	const [activeTab, setActiveTab] = useState("profil");

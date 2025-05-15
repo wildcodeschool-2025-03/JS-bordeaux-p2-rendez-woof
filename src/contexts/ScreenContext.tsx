@@ -1,8 +1,18 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import type { Dispatch, ReactNode, SetStateAction } from "react";
 
-const ScreenContext = createContext(null);
+interface ScreenContextType {
+	isMobile: boolean;
+	setIsMobile: Dispatch<SetStateAction<boolean>>;
+}
 
-export function ScreenProvider({ children }) {
+interface ScreenProviderProps {
+	children: ReactNode;
+}
+
+const ScreenContext = createContext<ScreenContextType | null>(null);
+
+export function ScreenProvider({ children }: ScreenProviderProps) {
 	const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
 
 	useEffect(() => {
