@@ -1,5 +1,61 @@
+:root {
+	--main-color: #5c913b;
+	--background-color-header-footer: #efede6;
+	--background-color-body: #f9f8f4;
+	--text-color: black;
+	--border-color: #ff3c14;
+}
+
+@font-face {
+	font-family: "Chela One";
+	src: url("./assets/font/Chela_One/ChelaOne-Regular.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+h1 {
+	font-size: 2rem;
+	font-family: "Chela One", cursive;
+	color: var(--main-color);
+}
+
+h2 {
+	font-size: 1.2rem;
+	font-weight: normal;
+	padding-bottom: 40px;
+}
+
+p {
+	font-size: 1rem;
+}
+
+.bold {
+	font-weight: bold;
+}
+
 body {
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	background-color: var(--background-color-body);
+	color: var(--text-color);
+}
+
+.red {
+	color: var(--border-color);
+}
+
+@media (min-width: 1024px) {
+	h1 {
+		font-size: 3rem;
+		display: flex;
+		align-items: center;
+	}
+
+	h2 {
+		font-size: 2rem;
+	}
+	p {
+		font-size: 1.1rem;
+	}
 }

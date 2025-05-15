@@ -1,0 +1,86 @@
+.button-group {
+	display: flex;
+	gap: 10px;
+	padding: 20px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	justify-content: flex-start;
+}
+
+.tab-button {
+	background-color: #6e9f3f;
+	color: white;
+	font-weight: bold;
+	padding: 8px 14px;
+	border-radius: 8px;
+	cursor: pointer;
+	font-family: sans-serif;
+	transition: all 0.2s ease;
+}
+
+.tab-button.active {
+	border: 2px solid var(--border-color);
+}
+
+.tab-button:hover {
+	background-color: #5a8735;
+	transform: scale(1.05);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.content {
+	display: flex;
+	justify-content: space-evenly;
+	padding-bottom: 40px;
+}
+
+.profileContainer {
+	width: 100%;
+}
+
+.tidusProfile {
+	display: flex;
+	justify-content: space-evenly;
+	width: 100%;
+}
+
+.cardList {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-gap: 20px;
+	padding: 20px;
+	margin: 0 auto;
+	max-width: 1200px;
+	justify-items: center;
+}
+
+.cardProfile {
+	display: flex;
+	gap: 20px;
+	padding: 20px;
+}
+
+@media (max-width: 1023px) {
+	.cardList {
+		grid-template-columns: 1fr;
+	}
+
+	.content {
+		flex-direction: column;
+		align-items: center;
+		gap: 20px;
+	}
+
+	.button-group {
+		justify-content: center;
+	}
+
+	.tab-button {
+		font-size: 12px;
+	}
+
+	.tidusProfile {
+		display: flex;
+		align-items: center;
+	}
+}

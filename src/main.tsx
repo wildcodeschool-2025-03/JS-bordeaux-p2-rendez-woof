@@ -1,6 +1,16 @@
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import ReactDOM from "react-dom/client";
+import "./components/reset.css";
+import "./index.css";
+import { RouterProvider } from "react-router";
+import router from "./Router";
+import { LikesProvider } from "./components/LikeContext/LikesContext";
 
-createRoot(document.getElementById('root') || document.body)
-.render(<App />);
+const rootElement = document.getElementById("root");
+
+if (rootElement) {
+	ReactDOM.createRoot(rootElement).render(
+		<LikesProvider>
+			<RouterProvider router={router} />
+		</LikesProvider>,
+	);
+}
