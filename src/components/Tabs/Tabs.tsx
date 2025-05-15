@@ -3,7 +3,7 @@ import "./Tabs.css";
 import LikedDogsList from "../LikedDogsList/LikedDogsList";
 
 function Tabs() {
-	const [activeTab, setActiveTab] = useState("likes");
+	const [activeTab, setActiveTab] = useState("");
 
 	return (
 		<>

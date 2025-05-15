@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./App.tsx";
 import Home from "./pages/home/Home.tsx";
 import MyProfile from "./pages/myProfile/MyProfile.tsx";
-import Profiles from "./pages/profiles/Profiles.tsx"; // Page pour découvrir les profils
+import Profiles from "./pages/profiles/Profiles.tsx";
 
 const router = createBrowserRouter([
 	{
@@ -18,8 +18,8 @@ const router = createBrowserRouter([
 				element: <MyProfile />,
 			},
 			{
-				path: "/decouvrir-profiles", // Changer le chemin ici pour correspondre à ce que tu veux
-				element: <Profiles />, // Page des profils
+				path: "/decouvrir-profiles",
+				element: <Profiles />,
 			},
 		],
 	},

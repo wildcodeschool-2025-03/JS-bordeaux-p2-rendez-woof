@@ -1,6 +1,5 @@
 @font-face {
 	font-family: "Chelsea Market";
-
 	src: url("/fonts/ChelseaMarket-Regular.ttf") format("truetype");
 	font-weight: normal;
 	font-style: normal;
@@ -34,7 +33,7 @@
 
 .intro {
 	flex: 1;
-	margin-top: 5px;
+	margin-top: 0px;
 }
 
 .title {
@@ -55,45 +54,14 @@
 	font-family: "Chelsea Market", cursive;
 }
 
-.aside {
-	padding-top: 300px;
-}
-
 .dog-profile {
-	padding: 1rem;
-	border-radius: 8px;
-	max-width: 250px;
-	text-align: center;
-	min-height: 300px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	transform: translateX(-20px) translateY(20px);
 }
 
 .woof {
 	color: #b1a680;
 	font-weight: bold;
 	margin-bottom: 1rem;
-}
-
-.dog-card {
-	width: 100%;
-	aspect-ratio: 1 / 1; /* carré automatique */
-	object-fit: cover;
-	border-radius: 20px;
-}
-
-.dog-image {
-	width: 100%;
-
-	object-fit: cover;
-	border-radius: 20px;
-}
-
-.dog-name {
-	font-weight: bold;
-	font-size: 1.5rem;
-	padding: 1rem;
 }
 
 .discover-button {
@@ -103,7 +71,7 @@
 	border: none;
 	border-radius: 10px;
 	font-weight: bold;
-	margin: 0.1rem 0 2rem 0;
+	margin: 3rem 0 2rem 0;
 	cursor: pointer;
 }
 
@@ -133,6 +101,11 @@
 	align-items: center;
 	text-align: center;
 	max-width: 150px;
+}
+
+.badge-info {
+	margin-top: 4rem;
+	text-align: center;
 }
 
 .icon {
@@ -193,14 +166,14 @@
 
 	.features {
 		display: flex;
-		justify-content: center; /* centrer les éléments */
-
-		gap: 2rem;
-		flex-wrap: nowrap; /* empêche le passage en colonne */
+		flex-direction: row; /* Maintenir la disposition horizontale */
+		justify-content: space-between; /* Pour un alignement plus fluide */
+		gap: 1rem; /* Réduire l'espace entre les items */
+		flex-wrap: nowrap; /* Autoriser l'enroulement des éléments sur plusieurs lignes si nécessaire */
 		width: 100%;
 	}
 
 	.feature {
-		flex: 0 1 auto; /* garder la largeur automatique des features */
+		flex: 1 1 150px; /* Permet aux éléments de s'ajuster de manière réactive */
 	}
 }
