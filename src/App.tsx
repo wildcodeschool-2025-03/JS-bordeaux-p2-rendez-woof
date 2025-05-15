@@ -1,4 +1,5 @@
 import { Outlet } from "react-router";
+import { ScreenProvider } from "./contexts/ScreenContext";
 import "./App.css";
 import { Toaster } from "sonner";
 import Footer from "./components/Footer/Footer";
@@ -8,7 +9,9 @@ function App() {
 	return (
 		<>
 			<Header />
-			<Outlet />
+			<ScreenProvider>
+				<Outlet />
+			</ScreenProvider>
 			<Footer />
 			<Toaster />
 		</>

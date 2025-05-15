@@ -1,6 +1,6 @@
-import { useState } from "react";
 import "./CardProfile.css";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import ReactCardFlip from "react-card-flip";
 import { toast } from "sonner";
 import { type DogType, useLikes } from "../LikeContext/LikesContext";

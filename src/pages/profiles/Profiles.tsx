@@ -6,6 +6,7 @@ import type { MultiValue } from "react-select";
 import CardProfile from "../../components/CardProfile/CardProfile";
 import type { DogType } from "../../components/LikeContext/LikesContext";
 import Recommandations from "../../components/Recommandations/Recommandations";
+import { useScreen } from "../../contexts/ScreenContext";
 
 interface Option {
 	value: string;
@@ -13,7 +14,7 @@ interface Option {
 }
 
 function Profiles() {
-	const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+	const { isMobile } = useScreen();
 	const [dog, setDog] = useState<DogType[]>([]);
 
 	const [isLocalityClicked, setIsLocalityClicked] = useState(false);
@@ -33,6 +34,10 @@ function Profiles() {
 	const [isMultiSelectHobbies, setIsMultiSelectHobbies] = useState(false);
 	const [selectedHobbies, setSelectedHobbies] = useState<Option[]>([]);
 	const [hobbiesOptions, setHobbiesOptions] = useState<Option[]>([]);
+
+	const removeDogFromList = (id: number) => {
+		setDog((prev) => prev.filter((d) => d.id !== id));
+	};
 
 	useEffect(() => {
 		fetch(
@@ -65,12 +70,6 @@ function Profiles() {
 
 				setHobbiesOptions(formattedHobbies);
 			});
-	}, []);
-
-	useEffect(() => {
-		const handleResize = () => setIsMobile(window.innerWidth < 1024);
-		window.addEventListener("resize", handleResize);
-		return () => window.removeEventListener("resize", handleResize);
 	}, []);
 
 	useEffect(() => {
@@ -268,7 +267,11 @@ function Profiles() {
 					{filteredDogs.length > 0 ? (
 						filteredDogs.slice(0, isMobile ? 1 : 3).map((dog, index) => (
 							<div key={dog.id} className={`card-${index + 1}`}>
-								<CardProfile dog={dog} context="profiles" />
+								<CardProfile
+									dog={dog}
+									context="profiles"
+									onRemove={() => removeDogFromList(dog.id)}
+								/>
 							</div>
 						))
 					) : (
